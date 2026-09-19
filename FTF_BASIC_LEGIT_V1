@@ -922,7 +922,7 @@ end
 
 -- ==========================================
 -- ABAS DO PAINEL
--- ==========================================
+-- ========================================== 
 
 -- 1. Music
 local musicPage = createTabPage("music", "MUSIC", 125566233373316)
@@ -1162,8 +1162,12 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     end)
 end
 
+-- Phonk Playlist Card
 createMusicPlaylistCard("Phonk Playlist", {
     {Name = "Aggressive Brazilian Phonk", Id = "102892380593258"},
+    {Name = "Montagem Fearless", Id = "71795370590946"}, 
+    {Name = "Door Phonk", Id = "137486973114353"}, 
+    {Name = "Sperak 220H", Id = "118174623861667"}, 
     {Name = "Festival Phonk", Id = "80059228606274"},
     {Name = "Violin Phonk", Id = "80159531756934"},
     {Name = "Night Drive Phonk", Id = "75764445212230"},
@@ -1171,6 +1175,16 @@ createMusicPlaylistCard("Phonk Playlist", {
     {Name = "GTR PHONK", Id = "83624433031847"},
     {Name = "Metamorphosis", Id = "15689451063"},
     {Name = "PHONK.exe", Id = "97192334657561"}
+})
+
+-- Funk Playlist Card (Adicionado abaixo)
+createMusicPlaylistCard("Funk Playlist", {
+    {Name = "Gin de 10", Id = "140191183373449"},
+    {Name = "Brota na DZ7", Id = "91718655037908"},
+    {Name = "Na onda do birimbau", Id = "90728144562197"},
+    {Name = "Toma tapão", Id = "128589691105865"},
+    {Name = "Vamos fazer", Id = "115785379321689"},
+    {Name = "Reflexo alinhado", Id = "126125120004125"}
 })
 
 -- 2. Sounds
