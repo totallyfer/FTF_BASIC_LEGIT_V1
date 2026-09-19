@@ -125,14 +125,13 @@ CloseButton.BackgroundTransparency = 0.5
 CloseButton.Position = UDim2.new(1, -38, 0, 10)
 CloseButton.Size = UDim2.new(0, 24, 0, 24)
 CloseButton.Font = Enum.Font.GothamBold
-CloseButton.Text = "❌" -- Emoji de X vermelho padrão
+CloseButton.Text = "❌"
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.TextSize = 11
 
 local CloseCorner = Instance.new("UICorner")
 CloseCorner.CornerRadius = UDim.new(0, 6)
 CloseCorner.Parent = CloseButton
-
 
 local InfoButton = Instance.new("TextButton")
 InfoButton.Name = "InfoBtn"
@@ -524,7 +523,7 @@ local tabButtons = {}
 local tabPages = {}
 local activePage = nil
 
-local function createTabPage(tabNameKey, defaultText)
+local function createTabPage(tabNameKey, defaultText, iconAssetId)
     local page = Instance.new("ScrollingFrame")
     page.Name = tabNameKey .. "Page"
     page.Parent = ContentContainer
@@ -554,7 +553,8 @@ local function createTabPage(tabNameKey, defaultText)
 
     local sidePadding = Instance.new("UIPadding")
     sidePadding.Parent = sideBtn
-    sidePadding.PaddingLeft = UDim.new(0, 14)
+    -- Aumentado o PaddingLeft para afastar bem o texto da imagem
+    sidePadding.PaddingLeft = UDim.new(0, 36)
 
     local sideCorner = Instance.new("UICorner")
     sideCorner.CornerRadius = UDim.new(0, 10)
@@ -565,7 +565,23 @@ local function createTabPage(tabNameKey, defaultText)
     sideStroke.Transparency = 1
     sideStroke.Color = Color3.fromRGB(60, 130, 255)
 
-    table.insert(registeredElements, {type = "sidebar", btn = sideBtn, key = tabNameKey})
+    -- Imagem ao lado do botão da aba (posicionada mais à esquerda)
+    local sideIcon = Instance.new("ImageLabel")
+    sideIcon.Parent = sideBtn
+    sideIcon.BackgroundTransparency = 1
+    sideIcon.Position = UDim2.new(0, -22, 0.5, -9)
+    sideIcon.Size = UDim2.new(0, 18, 0, 18)
+    sideIcon.Image = "rbxassetid://" .. tostring(iconAssetId)
+    sideIcon.ScaleType = Enum.ScaleType.Fit
+
+    table.insert(registeredElements, {
+        type = "sidebar", 
+        btn = sideBtn, 
+        key = tabNameKey,
+        updateText = function(txt)
+            sideBtn.Text = txt
+        end
+    })
 
     sideBtn.MouseButton1Click:Connect(function()
         if activePage == page then
@@ -676,7 +692,11 @@ local function updateLanguageUI()
     if not t then return end
     for _, item in ipairs(registeredElements) do
         if item.type == "sidebar" then
-            item.btn.Text = t[item.key] or item.key
+            if item.updateText then
+                item.updateText(t[item.key] or item.key)
+            else
+                item.btn.Text = t[item.key] or item.key
+            end
         elseif item.type == "subbutton" then
             local currentStatusText = item.btn:FindFirstChildOfClass("TextLabel").Text
             item.btn.Text = "  " .. (t[item.key] or item.key)
@@ -903,16 +923,14 @@ local function updateAllCharactersSounds()
 end
 
 -- ==========================================
--- ABAS DO PAINEL
+-- ABAS DO PAINEL (COM OS IDS CONFIGURADOS NAS ABAS)
 -- ==========================================
 
--- 1. Music (Card Phonk Playlist, Funk e Outher Sounds com Controle de Volume)
-local musicPage = createTabPage("music", "🎵  MUSIC")
-
+-- 1. Music (ID: 125566233373316)
+local musicPage = createTabPage("music", "MUSIC", 125566233373316)
 local activeMusicPlayer = nil
-local currentMusicVolume = 100 -- Volume inicial 100%
+local currentMusicVolume = 100
 
--- Função padrão para criar cards de playlists musicais idênticos ao Phonk
 local function createMusicPlaylistCard(cardTitleText, songListArray)
     local card = Instance.new("Frame")
     card.Parent = musicPage
@@ -941,7 +959,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     cardTitle.TextSize = 13
     cardTitle.TextXAlignment = Enum.TextXAlignment.Left
 
-    -- Botão Dropdown "Selecione a musica"
     local dropdownToggleBtn = Instance.new("TextButton")
     dropdownToggleBtn.Parent = card
     dropdownToggleBtn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
@@ -964,13 +981,12 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     dropdownStroke.Thickness = 1
     dropdownStroke.Color = Color3.fromRGB(45, 45, 65)
 
-    -- Container da Lista de Opções (Dropdown List)
     local optionsListFrame = Instance.new("ScrollingFrame")
     optionsListFrame.Parent = card
     optionsListFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
     optionsListFrame.BorderSizePixel = 0
     optionsListFrame.Position = UDim2.new(0, 12, 0, 74)
-    optionsListFrame.Size = UDim2.new(1, -24, 0, 0) -- Começa fechado
+    optionsListFrame.Size = UDim2.new(1, -24, 0, 0)
     optionsListFrame.Visible = false
     optionsListFrame.ZIndex = 50
     optionsListFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -1017,7 +1033,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
         end
     end)
 
-    -- Barra Interativa de Volume (0 a 100)
     local volumeTextLabel = Instance.new("TextLabel")
     volumeTextLabel.Parent = card
     volumeTextLabel.BackgroundTransparency = 1
@@ -1051,7 +1066,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     volumeFillCorner.CornerRadius = UDim.new(0, 5)
     volumeFillCorner.Parent = volumeBarFill
 
-    -- Botão Play
     local playMusicBtn = Instance.new("TextButton")
     playMusicBtn.Parent = card
     playMusicBtn.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
@@ -1068,7 +1082,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     playCorner.CornerRadius = UDim.new(0, 8)
     playCorner.Parent = playMusicBtn
 
-    -- Botão Stop
     local stopMusicBtn = Instance.new("TextButton")
     stopMusicBtn.Parent = card
     stopMusicBtn.BackgroundColor3 = Color3.fromRGB(70, 20, 20)
@@ -1085,7 +1098,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     stopCorner.CornerRadius = UDim.new(0, 8)
     stopCorner.Parent = stopMusicBtn
 
-    -- Status Text
     local musicStatusText = Instance.new("TextLabel")
     musicStatusText.Parent = card
     musicStatusText.BackgroundTransparency = 1
@@ -1097,7 +1109,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     musicStatusText.TextSize = 11
     musicStatusText.TextXAlignment = Enum.TextXAlignment.Left
 
-    -- Lógica de Arrastar a Barra de Volume
     local draggingVolumeSlider = false
     volumeBar.MouseButton1Down:Connect(function() draggingVolumeSlider = true end)
     UserInputService.InputEnded:Connect(function(inp)
@@ -1153,7 +1164,6 @@ local function createMusicPlaylistCard(cardTitleText, songListArray)
     end)
 end
 
--- Criando a Phonk Playlist existente
 createMusicPlaylistCard("Phonk Playlist", {
     {Name = "Aggressive Brazilian Phonk", Id = "102892380593258"},
     {Name = "Festival Phonk", Id = "80059228606274"},
@@ -1166,8 +1176,8 @@ createMusicPlaylistCard("Phonk Playlist", {
 })
 
 
--- 2. Sounds
-local soundsPage = createTabPage("sounds", "🔊  SOUNDS")
+-- 2. Sounds (ID: 137428945039766)
+local soundsPage = createTabPage("sounds", "SOUNDS", 137428945039766)
 
 local function createSoundCard(titleText, passosId, pulosId)
     local card = Instance.new("Frame")
@@ -1284,7 +1294,6 @@ createSoundCard("Bat", "rbxassetid://89746938623207", "rbxassetid://107335524413
 createSoundCard("Facility Gamer", "rbxassetid://92364073638525", "rbxassetid://101998425625154")
 createSoundCard("Mwaiconn", "", "")
 
--- Card de Outros Pulos
 local outrosCard = Instance.new("Frame")
 outrosCard.Parent = soundsPage
 outrosCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
@@ -1387,8 +1396,8 @@ createOutrosSubBtn("Noobtwopoint", "109734145773266", 34)
 createOutrosSubBtn("Echo", "84801715196210", 68)
 createOutrosSubBtn("Laugh", "76693372307958", 102)
 
--- 3. Fog
-local fogPage = createTabPage("fog", "🌫️  FOG")
+-- 3. Fog (ID: 104453469634665)
+local fogPage = createTabPage("fog", "FOG", 104453469634665)
 local origFogEnd = Lighting.FogEnd
 local origFogColor = Lighting.FogColor
 
@@ -1552,8 +1561,8 @@ UserInputService.InputChanged:Connect(function(inp)
     end
 end)
 
--- 4. Cursors
-local cursorsPage = createTabPage("cursors", "🖱️  CURSORS")
+-- 4. Cursors (ID: 138726408233424)
+local cursorsPage = createTabPage("cursors", "CURSORS", 138726408233424)
 local customCursorImage = Instance.new("ImageLabel")
 customCursorImage.Name = "CustomCursor"
 customCursorImage.Parent = ScreenGui
@@ -1698,8 +1707,8 @@ UserInputService.InputChanged:Connect(function(inp)
     end
 end)
 
--- 5. Textures
-local texturesPage = createTabPage("textures", "🎨  TEXTURES")
+-- 5. Textures (ID: 95451134259020)
+local texturesPage = createTabPage("textures", "TEXTURES", 95451134259020)
 
 local function isPlayerCharacter(part)
     for _, player in ipairs(Players:GetPlayers()) do
@@ -1856,8 +1865,8 @@ createCardSubButton(texturesCard, "removeTexture", 136, function(enabled)
     end
 end)
 
--- 6. Icons
-local iconsPage = createTabPage("icons", "🎴  ICONS")
+-- 6. Icons (ID: 123316235209546)
+local iconsPage = createTabPage("icons", "ICONS", 123316235209546)
 
 local iconDescLabel = Instance.new("TextLabel")
 iconDescLabel.Parent = iconsPage
@@ -2010,8 +2019,8 @@ bgDropdownBtn.MouseButton1Click:Connect(function()
     bgDropdownList.Visible = not bgDropdownList.Visible
 end)
 
--- 7. Avatar
-local avatarPage = createTabPage("avatar", "👤  AVATAR")
+-- 7. Avatar (ID: 106050892609784)
+local avatarPage = createTabPage("avatar", "AVATAR", 106050892609784)
 
 local avatarCard = Instance.new("Frame")
 avatarCard.Parent = avatarPage
@@ -2171,8 +2180,8 @@ applyAvatarBtn.MouseButton1Click:Connect(function()
     end
 end)
 
--- 8. Customization
-local customizationPage = createTabPage("customization", "⚙️  CUSTOMIZATION")
+-- 8. Customization (ID: 116139851595890)
+local customizationPage = createTabPage("customization", "CUSTOMIZATION", 116139851595890)
 
 local customCard = Instance.new("Frame")
 customCard.Parent = customizationPage
