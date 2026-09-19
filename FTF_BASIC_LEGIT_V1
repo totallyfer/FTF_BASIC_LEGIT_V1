@@ -1,0 +1,2410 @@
+-- ==========================================
+-- -- FTF BASIC LEGIT V1 - DESIGN AVANÇADO
+-- ==========================================
+
+pcall(function()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "FTF BASIC",
+        Text = "Design avançado aplicado com sucesso!",
+        Duration = 5
+    })
+end)
+
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+local UserInputService = game:GetService("UserInputService")
+local SoundService = game:GetService("SoundService")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+if PlayerGui:FindFirstChild("FTFLegitUI") then
+    PlayerGui.FTFLegitUI:Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "FTFLegitUI"
+ScreenGui.Parent = PlayerGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+ScreenGui.DisplayOrder = 999999
+
+-- Botão Toggle Fixo Modernizado
+local ToggleButton = Instance.new("ImageButton")
+ToggleButton.Name = "ToggleBtn"
+ToggleButton.Parent = ScreenGui
+ToggleButton.BackgroundColor3 = Color3.fromRGB(18, 18, 24)
+ToggleButton.BorderSizePixel = 0 
+ToggleButton.Position = UDim2.new(1, -48, 0.60, -24)
+ToggleButton.Size = UDim2.new(0, 48, 0, 48)
+ToggleButton.Image = "rbxassetid://99546673164168"
+ToggleButton.ScaleType = Enum.ScaleType.Crop
+ToggleButton.Active = true
+
+local ToggleCorner = Instance.new("UICorner")
+ToggleCorner.CornerRadius = UDim.new(0, 14)
+ToggleCorner.Parent = ToggleButton
+
+local ToggleStroke = Instance.new("UIStroke")
+ToggleStroke.Parent = ToggleButton
+ToggleStroke.Thickness = 1.5
+ToggleStroke.Color = Color3.fromRGB(60, 60, 80)
+
+-- Painel Principal Fixo no Centro (Estilo Glassmorphism Avançado)
+local MainFrame = Instance.new("ImageLabel")
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 16)
+MainFrame.BackgroundTransparency = 0.05
+MainFrame.Image = "rbxassetid://115201614649170"
+MainFrame.ScaleType = Enum.ScaleType.Crop
+MainFrame.BorderSizePixel = 0
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0, 660, 0, 460)
+MainFrame.Visible = true
+MainFrame.Active = true
+
+local MainCorner = Instance.new("UICorner")
+MainCorner.CornerRadius = UDim.new(0, 16)
+MainCorner.Parent = MainFrame
+
+-- Borda RGB Animada de Alta Performance
+local RGBBorder = Instance.new("UIStroke")
+RGBBorder.Parent = MainFrame
+RGBBorder.Thickness = 2
+RGBBorder.Transparency = 0.1
+
+task.spawn(function()
+    local hue = 0
+    while true do
+        hue = (hue + 0.004) % 1
+        RGBBorder.Color = Color3.fromHSV(hue, 0.85, 1)
+        task.wait(0.03)
+    end
+end)
+
+-- Barra Superior Moderna
+local TopBar = Instance.new("Frame")
+TopBar.Name = "TopBar"
+TopBar.Parent = MainFrame
+TopBar.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+TopBar.BackgroundTransparency = 0.2
+TopBar.BorderSizePixel = 0
+TopBar.Size = UDim2.new(1, 0, 0, 44)
+
+local TopCorner = Instance.new("UICorner")
+TopCorner.CornerRadius = UDim.new(0, 16)
+TopCorner.Parent = TopBar
+
+local TopBarCover = Instance.new("Frame")
+TopBarCover.Parent = TopBar
+TopBarCover.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+TopBarCover.BorderSizePixel = 0
+TopBarCover.Position = UDim2.new(0, 0, 1, -8)
+TopBarCover.Size = UDim2.new(1, 0, 0, 8)
+
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Name = "Title"
+TitleLabel.Parent = TopBar
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Position = UDim2.new(0, 18, 0, 0)
+TitleLabel.Size = UDim2.new(0, 300, 1, 0)
+TitleLabel.Font = Enum.Font.GothamBold
+TitleLabel.Text = "FTF BASIC LEGIT V1"
+TitleLabel.TextColor3 = Color3.fromRGB(245, 245, 255)
+TitleLabel.TextSize = 14
+TitleLabel.TextXAlignment = Enum.TextXAlignment.Left 
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Name = "CloseBtn"
+CloseButton.Parent = TopBar
+CloseButton.BackgroundColor3 = Color3.fromRGB(40, 40, 55)
+CloseButton.BackgroundTransparency = 0.5
+CloseButton.Position = UDim2.new(1, -38, 0, 10)
+CloseButton.Size = UDim2.new(0, 24, 0, 24)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.Text = "❌" -- Emoji de X vermelho padrão
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 11
+
+local CloseCorner = Instance.new("UICorner")
+CloseCorner.CornerRadius = UDim.new(0, 6)
+CloseCorner.Parent = CloseButton
+
+
+local InfoButton = Instance.new("TextButton")
+InfoButton.Name = "InfoBtn"
+InfoButton.Parent = TopBar
+InfoButton.BackgroundColor3 = Color3.fromRGB(40, 40, 55)
+InfoButton.BackgroundTransparency = 0.5
+InfoButton.Position = UDim2.new(1, -70, 0, 10)
+InfoButton.Size = UDim2.new(0, 24, 0, 24)
+InfoButton.Font = Enum.Font.GothamBold
+InfoButton.Text = "i"
+InfoButton.TextColor3 = Color3.fromRGB(200, 200, 220)
+InfoButton.TextSize = 12
+
+local InfoCorner = Instance.new("UICorner")
+InfoCorner.CornerRadius = UDim.new(0, 6)
+InfoCorner.Parent = InfoButton
+
+local LangButton = Instance.new("TextButton")
+LangButton.Name = "LangBtn"
+LangButton.Parent = TopBar
+LangButton.BackgroundColor3 = Color3.fromRGB(28, 28, 40)
+LangButton.BorderSizePixel = 0
+LangButton.Position = UDim2.new(1, -126, 0, 10)
+LangButton.Size = UDim2.new(0, 48, 0, 24)
+LangButton.Font = Enum.Font.GothamBold
+LangButton.Text = "EN"
+LangButton.TextColor3 = Color3.fromRGB(230, 230, 250)
+LangButton.TextSize = 11
+
+local LangCorner = Instance.new("UICorner")
+LangCorner.CornerRadius = UDim.new(0, 6)
+LangCorner.Parent = LangButton
+
+local LangStroke = Instance.new("UIStroke")
+LangStroke.Parent = LangButton
+LangStroke.Color = Color3.fromRGB(50, 50, 70)
+
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+end)
+
+CloseButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+end)
+
+-- Sidebar (Abas Laterais Reformuladas)
+local Sidebar = Instance.new("ScrollingFrame")
+Sidebar.Name = "Sidebar"
+Sidebar.Parent = MainFrame
+Sidebar.BackgroundColor3 = Color3.fromRGB(10, 10, 14)
+Sidebar.BackgroundTransparency = 0.5
+Sidebar.BorderSizePixel = 0
+Sidebar.Position = UDim2.new(0, 0, 0, 48)
+Sidebar.Size = UDim2.new(0, 175, 1, -48)
+Sidebar.CanvasSize = UDim2.new(0, 0, 2.5, 0)
+Sidebar.ScrollBarThickness = 2
+
+local SideLayout = Instance.new("UIListLayout")
+SideLayout.Parent = Sidebar
+SideLayout.SortOrder = Enum.SortOrder.LayoutOrder
+SideLayout.Padding = UDim.new(0, 6)
+
+local ContentContainer = Instance.new("Frame")
+ContentContainer.Name = "ContentContainer"
+ContentContainer.Parent = MainFrame
+ContentContainer.BackgroundTransparency = 1
+ContentContainer.Position = UDim2.new(0, 190, 0, 60)
+ContentContainer.Size = UDim2.new(1, -205, 1, -72)
+
+-- ==========================================
+-- DICIONÁRIO DE TRADUÇÕES MULTI-IDIOMA COMPLETO
+-- ==========================================
+local translations = {
+    ["EN"] = {
+        music = "🎵  MUSIC",
+        sounds = "🔊  SOUNDS",
+        fog = "🌫️  FOG",
+        cursors = "🖱️  CURSORS",
+        textures = "🎨  TEXTURES",
+        icons = "🎴  ICONS",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Close",
+        infoTitle = "  INFORMATIONS / CREDITS",
+        blackFog = "Black Fog",
+        flashlight = "Flashlight",
+        flashlightIntensity = "Flashlight Intensity",
+        snowTexture = "Snow Texture",
+        removeTexture = "Remove Texture",
+        minecraftTexture = "Minecraft Texture",
+        lavaTexture = "Lava Texture",
+        cursorSize = "Cursor Size",
+        iconDesc = "Select the desired icon to change the FTF BASIC LEGIT V1 icon",
+        selectBgTitle = "Select Desired Background",
+        selectBgBtn = "Select background ▼",
+        passos = "Steps",
+        pulos = "Jumps",
+        outrosPulos = "Other Jumps",
+        targetPlayerTitle = "Target Player Name",
+        targetPlayerPlaceholder = "Type the player in game",
+        skinInputTitle = "Skin Name or ID (User)",
+        skinInputPlaceholder = "Type the user to copy skin",
+        applyAvatarBtn = "Apply Avatar"
+    },
+    ["PT"] = {
+        music = "🎵  MÚSICA",
+        sounds = "🔊  SONS",
+        fog = "🌫️  NEBLINA",
+        cursors = "🖱️  CURSORES",
+        textures = "🎨  TEXTURAS",
+        icons = "🎴  ÍCONES",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Fechar",
+        infoTitle = "  INFORMAÇÕES / CRÉDITOS",
+        blackFog = "Névoa Preta",
+        flashlight = "Lanterna",
+        flashlightIntensity = "Intensidade da Lanterna",
+        snowTexture = "Textura de Neve",
+        removeTexture = "Remover Textura",
+        minecraftTexture = "Textura Minecraft",
+        lavaTexture = "Textura de Lava",
+        cursorSize = "Tamanho do Cursor",
+        iconDesc = "Selecione o ícone desejado para trocar o ícone do FTF BASIC LEGIT V1",
+        selectBgTitle = "Selecione o Fundo Desejado",
+        selectBgBtn = "Selecionar fundo ▼",
+        passos = "Passos",
+        pulos = "Pulos",
+        outrosPulos = "Outros Pulos",
+        targetPlayerTitle = "Nome do Jogador Alvo",
+        targetPlayerPlaceholder = "Digite o player na partida",
+        skinInputTitle = "Nome ou ID da Skin (Usuário)",
+        skinInputPlaceholder = "Digite o usuário para copiar a skin",
+        applyAvatarBtn = "Aplicar Avatar"
+    },
+    ["ES"] = {
+        music = "🎵  MÚSICA",
+        sounds = "🔊  SONIDOS",
+        fog = "🌫️  NIEBLA",
+        cursors = "🖱️  CURSORES",
+        textures = "🎨  TEXTURAS",
+        icons = "🎴  ICONOS",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Cerrar",
+        infoTitle = "  INFORMACIÓN / CRÉDITOS",
+        blackFog = "Niebla Negra",
+        flashlight = "Linterna",
+        flashlightIntensity = "Intensidad de Linterna",
+        snowTexture = "Textura de Nieve",
+        removeTexture = "Quitar Textura",
+        minecraftTexture = "Textura Minecraft",
+        lavaTexture = "Textura de Lava",
+        cursorSize = "Tamaño del Cursor",
+        iconDesc = "Seleccione el icono deseado para cambiar el icono de FTF BASIC LEGIT V1",
+        selectBgTitle = "Seleccione el Fondo Deseado",
+        selectBgBtn = "Seleccionar fondo ▼",
+        passos = "Pasos",
+        pulos = "Saltos",
+        outrosPulos = "Otros Saltos",
+        targetPlayerTitle = "Nombre del Jugador",
+        targetPlayerPlaceholder = "Escribe el jugador en partida",
+        skinInputTitle = "Nombre o ID de Skin",
+        skinInputPlaceholder = "Escribe el usuario para copiar",
+        applyAvatarBtn = "Aplicar Avatar"
+    },
+    ["DE"] = {
+        music = "🎵  MUSIK",
+        sounds = "🔊  TÖNE",
+        fog = "🌫️  NEBEL",
+        cursors = "🖱️  MAUSZEIGER",
+        textures = "🎨  TEXTUREN",
+        icons = "🎴  SYMBOLE",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Schließen",
+        infoTitle = "  INFORMATIONEN / CREDITS",
+        blackFog = "Schwarzer Nebel",
+        flashlight = "Taschenlampe",
+        flashlightIntensity = "Taschenlampen-Intensität",
+        snowTexture = "Schnee Textur",
+        removeTexture = "Textur Entfernen",
+        minecraftTexture = "Minecraft Textur",
+        lavaTexture = "Lava Textur",
+        cursorSize = "Cursor-Größe",
+        iconDesc = "Wählen Sie das gewünschte Symbol aus, um das FTF BASIC LEGIT V1-Symbol zu ändern",
+        selectBgTitle = "Gewünschten Hintergrund wählen",
+        selectBgBtn = "Hintergrund wählen ▼",
+        passos = "Schritte",
+        pulos = "Sprünge",
+        outrosPulos = "Andere Sprünge",
+        targetPlayerTitle = "Ziel-Spielername",
+        targetPlayerPlaceholder = "Spieler im Spiel eingeben",
+        skinInputTitle = "Skin Name oder ID",
+        skinInputPlaceholder = "Benutzer zum Kopieren eingeben",
+        applyAvatarBtn = "Avatar Anwenden"
+    },
+    ["FR"] = {
+        music = "🎵  MUSIQUE",
+        sounds = "🔊  SONS",
+        fog = "🌫️  BROUILLARD",
+        cursors = "🖱️  CURSEURS",
+        textures = "🎨  TEXTURES",
+        icons = "🎴  ICÔNES",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Fermer",
+        infoTitle = "  INFORMATIONS / CRÉDITS",
+        blackFog = "Brouillard Noir",
+        flashlight = "Lampe de poche",
+        flashlightIntensity = "Intensité de Lampe",
+        snowTexture = "Texture Neige",
+        removeTexture = "Supprimer Texture",
+        minecraftTexture = "Texture Minecraft",
+        lavaTexture = "Texture de Lave",
+        cursorSize = "Taille du Curseur",
+        iconDesc = "Sélectionnez l'icône souhaitée pour changer l'icône de FTF BASIC LEGIT V1",
+        selectBgTitle = "Sélectionnez l'arrière-plan souhaité",
+        selectBgBtn = "Sélectionner fond ▼",
+        passos = "Pas",
+        pulos = "Sauts",
+        outrosPulos = "Autres Sauts",
+        targetPlayerTitle = "Nom du Joueur Cible",
+        targetPlayerPlaceholder = "Entrez le joueur",
+        skinInputTitle = "Nom ou ID de Skin",
+        skinInputPlaceholder = "Entrez l'utilisateur",
+        applyAvatarBtn = "Appliquer l'Avatar"
+    },
+    ["IT"] = {
+        music = "🎵  MUSICA",
+        sounds = "🔊  SUONI",
+        fog = "🌫️  NEBBIA",
+        cursors = "🖱️  CURSORI",
+        textures = "🎨  TEXTURES",
+        icons = "🎴  ICONE",
+        avatar = "👤  AVATAR",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "Chiudi",
+        infoTitle = "  INFORMAZIONI / CREDITI",
+        blackFog = "Nebbia Nera",
+        flashlight = "Torcia",
+        flashlightIntensity = "Intensità Torcia",
+        snowTexture = "Tessitura Neve",
+        removeTexture = "Rimuovi Tessitura",
+        minecraftTexture = "Tessitura Minecraft",
+        lavaTexture = "Tessitura Lava",
+        cursorSize = "Dimensione Cursore",
+        iconDesc = "Seleziona l'icona desiderata per cambiare l'icona di FTF BASIC LEGIT V1",
+        selectBgTitle = "Seleziona lo sfondo desiderato",
+        selectBgBtn = "Seleziona sfondo ▼",
+        passos = "Passi",
+        pulos = "Salti",
+        outrosPulos = "Altri Salti",
+        targetPlayerTitle = "Nome Giocatore",
+        targetPlayerPlaceholder = "Digita il giocatore",
+        skinInputTitle = "Nome o ID Skin",
+        skinInputPlaceholder = "Digita l'utente",
+        applyAvatarBtn = "Applica Avatar"
+    },
+    ["JA"] = {
+        music = "🎵  音楽",
+        sounds = "🔊  サウンド",
+        fog = "🌫️  霧",
+        cursors = "🖱️  カーソル",
+        textures = "🎨  テクスチャ",
+        icons = "🎴  アイコン",
+        avatar = "👤  アバター",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "閉じる",
+        infoTitle = "  情報 / クレジット",
+        blackFog = "黒い霧",
+        flashlight = "懐中電灯",
+        flashlightIntensity = "懐中電灯の明るさ",
+        snowTexture = "雪のテクスチャ",
+        removeTexture = "テクスチャ削除",
+        minecraftTexture = "マインクラフトテクスチャ",
+        lavaTexture = "溶岩テクスチャ",
+        cursorSize = "カーソルサイズ",
+        iconDesc = "FTF BASIC LEGIT V1のアイコンを変更するには、希望のアイコンを選択してください",
+        selectBgTitle = "希望の背景を選択してください",
+        selectBgBtn = "背景を選択 ▼",
+        passos = "ステップ",
+        pulos = "ジャンプ",
+        outrosPulos = "その他のジャンプ",
+        targetPlayerTitle = "ターゲットプレイヤー名",
+        targetPlayerPlaceholder = "プレイヤー名を入力",
+        skinInputTitle = "スキン名またはID",
+        skinInputPlaceholder = "コピーするユーザーを入力",
+        applyAvatarBtn = "アバターを適用"
+    },
+    ["ZH"] = {
+        music = "🎵  音乐",
+        sounds = "🔊  声音",
+        fog = "🌫️  雾效",
+        cursors = "🖱️  光标",
+        textures = "🎨  纹理",
+        icons = "🎴  图标",
+        avatar = "👤  化身",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "关闭",
+        infoTitle = "  信息 / 制作人员",
+        blackFog = "黑雾",
+        flashlight = "手电筒",
+        flashlightIntensity = "手电筒亮度",
+        snowTexture = "雪地纹理",
+        removeTexture = "移除纹理",
+        minecraftTexture = "我的世界纹理",
+        lavaTexture = "熔岩纹理",
+        cursorSize = "光标大小",
+        iconDesc = "选择所需的图标以更改 FTF BASIC LEGIT V1 图标",
+        selectBgTitle = "选择所需背景",
+        selectBgBtn = "选择背景 ▼",
+        passos = "步伐",
+        pulos = "跳跃",
+        outrosPulos = "其他跳跃",
+        targetPlayerTitle = "目标玩家名称",
+        targetPlayerPlaceholder = "输入玩家名称",
+        skinInputTitle = "皮肤名称或ID",
+        skinInputPlaceholder = "输入要复制的用户",
+        applyAvatarBtn = "应用化身"
+    },
+    ["HI"] = {
+        music = "🎵  संगीत",
+        sounds = "🔊  ध्वनि",
+        fog = "🌫️  कोहरा",
+        cursors = "🖱️  कर्सर",
+        textures = "🎨  टेक्सचर",
+        icons = "🎴  प्रतीक",
+        avatar = "👤  अवतार",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "बंद करें",
+        infoTitle = "  जानकारी / श्रेय",
+        blackFog = "काला कोहरा",
+        flashlight = "फ़لاشलाइट",
+        flashlightIntensity = "फ़لاشलाइट तीव्रता",
+        snowTexture = "बर्फ टेक्सचर",
+        removeTexture = "टेक्सचर हटाएं",
+        minecraftTexture = "माइनक्राफ्ट टेक्सचर",
+        lavaTexture = "लावा टेक्सचर",
+        cursorSize = "कर्सर आकार",
+        iconDesc = "FTF BASIC LEGIT V1 आइकन बदलने के लिए इच्छित आइकन चुनें",
+        selectBgTitle = "वांछित पृष्ठभूमि चुनें",
+        selectBgBtn = "पृष्ठभूमि चुनें ▼",
+        passos = "कदम",
+        pulos = "छलांग",
+        outrosPulos = "अन्य छलांगें",
+        targetPlayerTitle = "लक्ष्य खिलाड़ी का नाम",
+        targetPlayerPlaceholder = "खिलाड़ी का नाम दर्ज करें",
+        skinInputTitle = "स्किन नाम या आईडी",
+        skinInputPlaceholder = "उपयोगकर्ता दर्ज करें",
+        applyAvatarBtn = "अवतार लागू करें"
+    },
+    ["AR"] = {
+        music = "🎵  موسيقى",
+        sounds = "🔊  الأصوات",
+        fog = "🌫️  ضباب",
+        cursors = "🖱️  المؤشرات",
+        textures = "🎨  الأنماط",
+        icons = "🎴  أيقونات",
+        avatar = "👤  الصورة الرمزية",
+        customization = "⚙️  CUSTOMIZATION",
+        close = "إغلاق",
+        infoTitle = "  معلومات / الشكر والتقدير",
+        blackFog = "ضباب أسود",
+        flashlight = "مصباح يدوي",
+        flashlightIntensity = "شدة المصباح اليدوي",
+        snowTexture = "نمط الثلج",
+        removeTexture = "إزالة النمط",
+        minecraftTexture = "نمط ماين كرافت",
+        lavaTexture = "نمط الحمم",
+        cursorSize = "حجم المؤشر",
+        iconDesc = "حدد الأيقونة المطلوبة لتغيير أيقونة FTF BASIC LEGIT V1",
+        selectBgTitle = "حدد الخلفية المطلوبة",
+        selectBgBtn = "حدد الخلفية ▼",
+        passos = "خطوات",
+        pulos = "قفزات",
+        outrosPulos = "قفزات أخرى",
+        targetPlayerTitle = "اسم اللاعب المستهدف",
+        targetPlayerPlaceholder = "اكتب اسم اللاعب",
+        skinInputTitle = "اسم أو معرف السكن",
+        skinInputPlaceholder = "اكتب المستخدم للنسخ",
+        applyAvatarBtn = "تطبيق الصورة الرمزية"
+    }
+}
+
+local currentLang = "EN"
+local registeredElements = {}
+local tabButtons = {}
+local tabPages = {}
+local activePage = nil
+
+local function createTabPage(tabNameKey, defaultText)
+    local page = Instance.new("ScrollingFrame")
+    page.Name = tabNameKey .. "Page"
+    page.Parent = ContentContainer
+    page.BackgroundTransparency = 1
+    page.Size = UDim2.new(1, 0, 1, 0)
+    page.CanvasSize = UDim2.new(0, 0, 3.5, 0)
+    page.ScrollBarThickness = 3
+    page.Visible = false
+
+    local layout = Instance.new("UIListLayout")
+    layout.Parent = page
+    layout.SortOrder = Enum.SortOrder.LayoutOrder
+    layout.Padding = UDim.new(0, 10)
+
+    local sideBtn = Instance.new("TextButton")
+    sideBtn.Parent = Sidebar
+    sideBtn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+    sideBtn.BackgroundTransparency = 0.6
+    sideBtn.BorderSizePixel = 0
+    sideBtn.Size = UDim2.new(1, -8, 0, 38)
+    sideBtn.Position = UDim2.new(0, 4, 0, 0)
+    sideBtn.Font = Enum.Font.GothamSemibold
+    sideBtn.Text = defaultText
+    sideBtn.TextColor3 = Color3.fromRGB(170, 170, 195)
+    sideBtn.TextSize = 12
+    sideBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+    local sidePadding = Instance.new("UIPadding")
+    sidePadding.Parent = sideBtn
+    sidePadding.PaddingLeft = UDim.new(0, 14)
+
+    local sideCorner = Instance.new("UICorner")
+    sideCorner.CornerRadius = UDim.new(0, 10)
+    sideCorner.Parent = sideBtn
+
+    local sideStroke = Instance.new("UIStroke")
+    sideStroke.Parent = sideBtn
+    sideStroke.Transparency = 1
+    sideStroke.Color = Color3.fromRGB(60, 130, 255)
+
+    table.insert(registeredElements, {type = "sidebar", btn = sideBtn, key = tabNameKey})
+
+    sideBtn.MouseButton1Click:Connect(function()
+        if activePage == page then
+            page.Visible = false
+            sideBtn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+            sideBtn.TextColor3 = Color3.fromRGB(170, 170, 195)
+            sideStroke.Transparency = 1
+            activePage = nil
+        else
+            if activePage then
+                activePage.Visible = false
+            end
+            for _, b in pairs(tabButtons) do
+                b.btn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+                b.btn.TextColor3 = Color3.fromRGB(170, 170, 195)
+                b.stroke.Transparency = 1
+            end
+            page.Visible = true
+            sideBtn.BackgroundColor3 = Color3.fromRGB(30, 80, 180)
+            sideBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            sideStroke.Transparency = 0
+            activePage = page
+        end
+    end)
+
+    table.insert(tabButtons, {btn = sideBtn, stroke = sideStroke})
+    table.insert(tabPages, page)
+    return page
+end
+
+local function createCardSubButton(parentCard, textKey, yPos, callback)
+    local btn = Instance.new("TextButton")
+    btn.Parent = parentCard
+    local activeState = false
+    local baseText = translations[currentLang][textKey] or textKey
+    btn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+    btn.BackgroundTransparency = 0.2
+    btn.BorderSizePixel = 0
+    btn.Position = UDim2.new(0, 12, 0, yPos)
+    btn.Size = UDim2.new(1, -24, 0, 32)
+    btn.Font = Enum.Font.Gotham
+    btn.Text = "  " .. baseText
+    btn.TextColor3 = Color3.fromRGB(190, 190, 215)
+    btn.TextSize = 12
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+
+    local statusIndicator = Instance.new("TextLabel")
+    statusIndicator.Parent = btn
+    statusIndicator.BackgroundTransparency = 1
+    statusIndicator.Position = UDim2.new(1, -65, 0, 0)
+    statusIndicator.Size = UDim2.new(0, 50, 1, 0)
+    statusIndicator.Font = Enum.Font.GothamBold
+    statusIndicator.Text = "[OFF]"
+    statusIndicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+    statusIndicator.TextSize = 11
+    statusIndicator.TextXAlignment = Enum.TextXAlignment.Right
+
+    local btnCorner = Instance.new("UICorner")
+    btnCorner.CornerRadius = UDim.new(0, 8)
+    btnCorner.Parent = btn
+
+    local btnStroke = Instance.new("UIStroke")
+    btnStroke.Parent = btn
+    btnStroke.Thickness = 1
+    btnStroke.Color = Color3.fromRGB(45, 45, 65)
+
+    table.insert(registeredElements, {
+        type = "subbutton", 
+        btn = btn, 
+        key = textKey, 
+        getActive = function() return activeState end,
+        setActive = function(state) activeState = state end,
+        setVisual = function(state)
+            if state then
+                statusIndicator.Text = "[ON]"
+                statusIndicator.TextColor3 = Color3.fromRGB(80, 255, 150)
+                btn.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
+                btnStroke.Color = Color3.fromRGB(40, 180, 100)
+            else
+                statusIndicator.Text = "[OFF]"
+                statusIndicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+                btn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+                btnStroke.Color = Color3.fromRGB(45, 45, 65)
+            end
+        end
+    })
+
+    btn.MouseButton1Click:Connect(function()
+        activeState = not activeState
+        if activeState then
+            statusIndicator.Text = "[ON]"
+            statusIndicator.TextColor3 = Color3.fromRGB(80, 255, 150)
+            btn.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
+            btnStroke.Color = Color3.fromRGB(40, 180, 100)
+        else
+            statusIndicator.Text = "[OFF]"
+            statusIndicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+            btn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+            btnStroke.Color = Color3.fromRGB(45, 45, 65)
+        end
+        pcall(function() callback(activeState) end)
+    end)
+    return btn
+end
+
+local function updateLanguageUI()
+    local t = translations[currentLang]
+    if not t then return end
+    for _, item in ipairs(registeredElements) do
+        if item.type == "sidebar" then
+            item.btn.Text = t[item.key] or item.key
+        elseif item.type == "subbutton" then
+            local currentStatusText = item.btn:FindFirstChildOfClass("TextLabel").Text
+            item.btn.Text = "  " .. (t[item.key] or item.key)
+            local ind = item.btn:FindFirstChildOfClass("TextLabel")
+            if ind then
+                ind.Parent = nil
+                ind.Parent = item.btn
+            end
+        elseif item.type == "slider_label" then
+            item.btn.Text = "  " .. (t[item.key] or item.key) .. ": " .. item.getValue() .. item.suffix
+        elseif item.type == "info_title" then
+            item.btn.Text = t.infoTitle
+        elseif item.type == "close_info" then
+            item.btn.Text = t.close
+        elseif item.type == "icon_desc" then
+            item.btn.Text = t.iconDesc
+        elseif item.type == "select_bg_title" then
+            item.btn.Text = t.selectBgTitle
+        elseif item.type == "select_bg_btn" then
+            local currentText = item.btn.Text
+            if currentText:find("▼") then
+                item.btn.Text = t.selectBgBtn
+            else
+                item.btn.Text = t.selectBgBtn:gsub("▼", "▲")
+            end
+        elseif item.type == "outros_title" then
+            item.btn.Text = t.outrosPulos
+        elseif item.type == "avatar_label_1" then
+            item.btn.Text = t.targetPlayerTitle
+        elseif item.type == "avatar_label_2" then
+            item.btn.Text = t.skinInputTitle
+        elseif item.type == "avatar_btn" then
+            item.btn.Text = t.applyAvatarBtn
+        end
+    end
+end
+
+-- Modal de Informações Avançado
+local InfoModal = Instance.new("Frame")
+InfoModal.Name = "InfoModal"
+InfoModal.Parent = MainFrame
+InfoModal.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+InfoModal.BorderSizePixel = 0
+InfoModal.AnchorPoint = Vector2.new(0.5, 0.5)
+InfoModal.Position = UDim2.new(0.5, 0, 0.5, 0)
+InfoModal.Size = UDim2.new(0, 340, 0, 260)
+InfoModal.Visible = false
+InfoModal.ZIndex = 100
+
+local InfoCorner = Instance.new("UICorner")
+InfoCorner.CornerRadius = UDim.new(0, 14)
+InfoCorner.Parent = InfoModal
+
+local InfoStroke = Instance.new("UIStroke")
+InfoStroke.Parent = InfoModal
+InfoStroke.Thickness = 1.5
+InfoStroke.Color = Color3.fromRGB(70, 70, 100)
+
+local InfoTitle = Instance.new("TextLabel")
+InfoTitle.Parent = InfoModal
+InfoTitle.BackgroundColor3 = Color3.fromRGB(22, 22, 30)
+InfoTitle.Size = UDim2.new(1, 0, 0, 40)
+InfoTitle.Font = Enum.Font.GothamBold
+InfoTitle.Text = translations[currentLang].infoTitle
+InfoTitle.TextColor3 = Color3.fromRGB(245, 245, 255)
+InfoTitle.TextSize = 13
+InfoTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local InfoTitleCorner = Instance.new("UICorner")
+InfoTitleCorner.CornerRadius = UDim.new(0, 14)
+InfoTitleCorner.Parent = InfoTitle
+
+table.insert(registeredElements, {type = "info_title", btn = InfoTitle})
+
+local InfoText = Instance.new("TextLabel")
+InfoText.Parent = InfoModal
+InfoText.BackgroundTransparency = 1
+InfoText.Position = UDim2.new(0, 16, 0, 54)
+InfoText.Size = UDim2.new(1, -32, 0, 140)
+InfoText.Font = Enum.Font.Gotham
+InfoText.Text = "FTF BASIC THE CREATOR\n\nOWNER: FER\nCO-OWNER: MWAICONN\nADMINISTRATOR: FER AND MWAICONN\nTESTERS: NONE"
+InfoText.TextColor3 = Color3.fromRGB(210, 210, 230)
+InfoText.TextSize = 12
+InfoText.TextXAlignment = Enum.TextXAlignment.Left
+InfoText.TextYAlignment = Enum.TextYAlignment.Top
+
+local CloseInfoBtn = Instance.new("TextButton")
+CloseInfoBtn.Parent = InfoModal
+CloseInfoBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 65)
+CloseInfoBtn.Position = UDim2.new(0.5, -55, 1, -45)
+CloseInfoBtn.Size = UDim2.new(0, 110, 0, 32)
+CloseInfoBtn.Font = Enum.Font.GothamBold
+CloseInfoBtn.Text = translations[currentLang].close
+CloseInfoBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseInfoBtn.TextSize = 12
+
+local CloseInfoCorner = Instance.new("UICorner")
+CloseInfoCorner.CornerRadius = UDim.new(0, 8)
+CloseInfoCorner.Parent = CloseInfoBtn
+
+table.insert(registeredElements, {type = "close_info", btn = CloseInfoBtn})
+
+InfoButton.MouseButton1Click:Connect(function() InfoModal.Visible = true end)
+CloseInfoBtn.MouseButton1Click:Connect(function() InfoModal.Visible = false end)
+
+-- Modal de Idiomas
+local LangModal = Instance.new("ScrollingFrame")
+LangModal.Name = "LangModal"
+LangModal.Parent = MainFrame
+LangModal.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+LangModal.BorderSizePixel = 0
+LangModal.Position = UDim2.new(1, -160, 0, 48)
+LangModal.Size = UDim2.new(0, 150, 0, 240)
+LangModal.Visible = false
+LangModal.ZIndex = 100
+LangModal.CanvasSize = UDim2.new(0, 0, 2, 0)
+LangModal.ScrollBarThickness = 2
+
+local LangModalCorner = Instance.new("UICorner")
+LangModalCorner.CornerRadius = UDim.new(0, 10)
+LangModalCorner.Parent = LangModal
+
+local LangModalStroke = Instance.new("UIStroke")
+LangModalStroke.Parent = LangModal
+LangModalStroke.Thickness = 1
+LangModalStroke.Color = Color3.fromRGB(60, 60, 80)
+
+local LangLayout = Instance.new("UIListLayout")
+LangLayout.Parent = LangModal
+LangLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local languagesList = {
+    {"🇺🇸 English", "EN"},
+    {"🇧🇷 Português BR", "PT"},
+    {"🇪🇸 Español", "ES"},
+    {"🇩🇪 Deutsch", "DE"},
+    {"🇫🇷 Français", "FR"},
+    {"🇮🇹 Italiano", "IT"},
+    {"🇯🇵 日本語", "JA"},
+    {"🇨🇳 中文", "ZH"},
+    {"🇮🇳 हिन्दी", "HI"},
+    {"🇸🇦 العربية", "AR"}
+}
+
+for _, langData in ipairs(languagesList) do
+    local lBtn = Instance.new("TextButton")
+    lBtn.Parent = LangModal
+    lBtn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+    lBtn.BorderSizePixel = 0
+    lBtn.Size = UDim2.new(1, 0, 0, 32)
+    lBtn.Font = Enum.Font.Gotham
+    lBtn.Text = langData[1]
+    lBtn.TextColor3 = Color3.fromRGB(200, 200, 225)
+    lBtn.TextSize = 12
+    lBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+    local textPadding = Instance.new("UIPadding")
+    textPadding.Parent = lBtn
+    textPadding.PaddingLeft = UDim.new(0, 12)
+
+    lBtn.MouseButton1Click:Connect(function()
+        currentLang = langData[2]
+        LangButton.Text = currentLang
+        LangModal.Visible = false
+        updateLanguageUI()
+    end)
+end
+
+LangButton.MouseButton1Click:Connect(function() LangModal.Visible = not LangModal.Visible end)
+
+-- ==========================================
+-- GERENCIADOR DE SONS MULTI-SELEÇÃO
+-- ==========================================
+local originalSounds = {}
+local activePassosSound = nil
+local activePulosSound = nil
+local activeSoundButtons = {}
+
+local function applySoundsToCharacter(character)
+    local hrp = character:WaitForChild("HumanoidRootPart", 5)
+    if not hrp then return end
+    local runSound = hrp:WaitForChild("Running", 5)
+    local jumpSound = hrp:WaitForChild("Jumping", 5)
+
+    if not originalSounds[character] then
+        originalSounds[character] = {
+            Running = runSound and runSound.SoundId or "",
+            Jumping = jumpSound and jumpSound.SoundId or ""
+        }
+    end
+
+    if runSound then 
+        runSound.SoundId = activePassosSound or originalSounds[character].Running 
+    end
+    if jumpSound then 
+        jumpSound.SoundId = activePulosSound or originalSounds[character].Jumping 
+    end
+end
+
+local function monitorPlayer(player)
+    player.CharacterAdded:Connect(function(char)
+        task.spawn(function()
+            applySoundsToCharacter(char)
+        end)
+    end)
+    if player.Character then
+        task.spawn(function()
+            applySoundsToCharacter(player.Character)
+        end)
+    end
+end
+
+for _, p in ipairs(Players:GetPlayers()) do
+    monitorPlayer(p)
+end
+Players.PlayerAdded:Connect(monitorPlayer)
+
+local function updateAllCharactersSounds()
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p.Character then
+            applySoundsToCharacter(p.Character)
+        end
+    end
+end
+
+-- ==========================================
+-- ABAS DO PAINEL
+-- ==========================================
+
+-- 1. Music (Card Phonk Playlist, Funk e Outher Sounds com Controle de Volume)
+local musicPage = createTabPage("music", "🎵  MUSIC")
+
+local activeMusicPlayer = nil
+local currentMusicVolume = 100 -- Volume inicial 100%
+
+-- Função padrão para criar cards de playlists musicais idênticos ao Phonk
+local function createMusicPlaylistCard(cardTitleText, songListArray)
+    local card = Instance.new("Frame")
+    card.Parent = musicPage
+    card.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+    card.BackgroundTransparency = 0.4
+    card.BorderSizePixel = 0
+    card.Size = UDim2.new(1, -10, 0, 215)
+
+    local cardCorner = Instance.new("UICorner")
+    cardCorner.CornerRadius = UDim.new(0, 12)
+    cardCorner.Parent = card
+
+    local cardStroke = Instance.new("UIStroke")
+    cardStroke.Parent = card
+    cardStroke.Thickness = 1
+    cardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+    local cardTitle = Instance.new("TextLabel")
+    cardTitle.Parent = card
+    cardTitle.BackgroundTransparency = 1
+    cardTitle.Position = UDim2.new(0, 14, 0, 10)
+    cardTitle.Size = UDim2.new(1, -28, 0, 22)
+    cardTitle.Font = Enum.Font.GothamBold
+    cardTitle.Text = cardTitleText
+    cardTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+    cardTitle.TextSize = 13
+    cardTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+    -- Botão Dropdown "Selecione a musica"
+    local dropdownToggleBtn = Instance.new("TextButton")
+    dropdownToggleBtn.Parent = card
+    dropdownToggleBtn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+    dropdownToggleBtn.BackgroundTransparency = 0.2
+    dropdownToggleBtn.BorderSizePixel = 0
+    dropdownToggleBtn.Position = UDim2.new(0, 12, 0, 38)
+    dropdownToggleBtn.Size = UDim2.new(1, -24, 0, 32)
+    dropdownToggleBtn.Font = Enum.Font.Gotham
+    dropdownToggleBtn.Text = "  Selecione a musica ▼"
+    dropdownToggleBtn.TextColor3 = Color3.fromRGB(190, 190, 215)
+    dropdownToggleBtn.TextSize = 12
+    dropdownToggleBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+    local dropdownCorner = Instance.new("UICorner")
+    dropdownCorner.CornerRadius = UDim.new(0, 8)
+    dropdownCorner.Parent = dropdownToggleBtn
+
+    local dropdownStroke = Instance.new("UIStroke")
+    dropdownStroke.Parent = dropdownToggleBtn
+    dropdownStroke.Thickness = 1
+    dropdownStroke.Color = Color3.fromRGB(45, 45, 65)
+
+    -- Container da Lista de Opções (Dropdown List)
+    local optionsListFrame = Instance.new("ScrollingFrame")
+    optionsListFrame.Parent = card
+    optionsListFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+    optionsListFrame.BorderSizePixel = 0
+    optionsListFrame.Position = UDim2.new(0, 12, 0, 74)
+    optionsListFrame.Size = UDim2.new(1, -24, 0, 0) -- Começa fechado
+    optionsListFrame.Visible = false
+    optionsListFrame.ZIndex = 50
+    optionsListFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+    optionsListFrame.ScrollBarThickness = 2
+
+    local optionsLayout = Instance.new("UIListLayout")
+    optionsLayout.Parent = optionsListFrame
+    optionsLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    optionsListFrame.CanvasSize = UDim2.new(0, 0, 0, #songListArray * 28)
+
+    local selectedSongId = nil
+
+    for _, song in ipairs(songListArray) do
+        local optionBtn = Instance.new("TextButton")
+        optionBtn.Parent = optionsListFrame
+        optionBtn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+        optionBtn.BorderSizePixel = 0
+        optionBtn.Size = UDim2.new(1, 0, 0, 28)
+        optionBtn.Font = Enum.Font.Gotham
+        optionBtn.Text = "  " .. song.Name
+        optionBtn.TextColor3 = Color3.fromRGB(190, 190, 215)
+        optionBtn.TextSize = 12
+        optionBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+        optionBtn.MouseButton1Click:Connect(function()
+            selectedSongId = song.Id
+            dropdownToggleBtn.Text = "  " .. song.Name .. " ▼"
+            optionsListFrame.Visible = false
+            optionsListFrame.Size = UDim2.new(1, -24, 0, 0)
+            card.Size = UDim2.new(1, -10, 0, 215)
+        end)
+    end
+
+    dropdownToggleBtn.MouseButton1Click:Connect(function()
+        if optionsListFrame.Visible then
+            optionsListFrame.Visible = false
+            optionsListFrame.Size = UDim2.new(1, -24, 0, 0)
+            card.Size = UDim2.new(1, -10, 0, 215)
+        else
+            optionsListFrame.Visible = true
+            optionsListFrame.Size = UDim2.new(1, -24, 0, 110)
+            card.Size = UDim2.new(1, -10, 0, 325)
+        end
+    end)
+
+    -- Barra Interativa de Volume (0 a 100)
+    local volumeTextLabel = Instance.new("TextLabel")
+    volumeTextLabel.Parent = card
+    volumeTextLabel.BackgroundTransparency = 1
+    volumeTextLabel.Position = UDim2.new(0, 12, 0, 78)
+    volumeTextLabel.Size = UDim2.new(1, -24, 0, 18)
+    volumeTextLabel.Font = Enum.Font.GothamBold
+    volumeTextLabel.Text = "Adjust the music volume: 100%"
+    volumeTextLabel.TextColor3 = Color3.fromRGB(190, 190, 215)
+    volumeTextLabel.TextSize = 11
+    volumeTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    local volumeBar = Instance.new("TextButton")
+    volumeBar.Parent = card
+    volumeBar.BackgroundColor3 = Color3.fromRGB(30, 30, 44)
+    volumeBar.BorderSizePixel = 0
+    volumeBar.Position = UDim2.new(0, 12, 0, 100)
+    volumeBar.Size = UDim2.new(1, -24, 0, 10)
+    volumeBar.Text = ""
+
+    local volumeBarCorner = Instance.new("UICorner")
+    volumeBarCorner.CornerRadius = UDim.new(0, 5)
+    volumeBarCorner.Parent = volumeBar
+
+    local volumeBarFill = Instance.new("Frame")
+    volumeBarFill.Parent = volumeBar
+    volumeBarFill.BackgroundColor3 = Color3.fromRGB(50, 130, 255)
+    volumeBarFill.BorderSizePixel = 0
+    volumeBarFill.Size = UDim2.new(1, 0, 1, 0)
+
+    local volumeFillCorner = Instance.new("UICorner")
+    volumeFillCorner.CornerRadius = UDim.new(0, 5)
+    volumeFillCorner.Parent = volumeBarFill
+
+    -- Botão Play
+    local playMusicBtn = Instance.new("TextButton")
+    playMusicBtn.Parent = card
+    playMusicBtn.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
+    playMusicBtn.BackgroundTransparency = 0.2
+    playMusicBtn.BorderSizePixel = 0
+    playMusicBtn.Position = UDim2.new(0, 12, 0, 124)
+    playMusicBtn.Size = UDim2.new(0.5, -18, 0, 32)
+    playMusicBtn.Font = Enum.Font.GothamBold
+    playMusicBtn.Text = "Play ▶"
+    playMusicBtn.TextColor3 = Color3.fromRGB(80, 255, 150)
+    playMusicBtn.TextSize = 12
+
+    local playCorner = Instance.new("UICorner")
+    playCorner.CornerRadius = UDim.new(0, 8)
+    playCorner.Parent = playMusicBtn
+
+    -- Botão Stop
+    local stopMusicBtn = Instance.new("TextButton")
+    stopMusicBtn.Parent = card
+    stopMusicBtn.BackgroundColor3 = Color3.fromRGB(70, 20, 20)
+    stopMusicBtn.BackgroundTransparency = 0.2
+    stopMusicBtn.BorderSizePixel = 0
+    stopMusicBtn.Position = UDim2.new(0.5, 6, 0, 124)
+    stopMusicBtn.Size = UDim2.new(0.5, -18, 0, 32)
+    stopMusicBtn.Font = Enum.Font.GothamBold
+    stopMusicBtn.Text = "Stop ⏹"
+    stopMusicBtn.TextColor3 = Color3.fromRGB(255, 100, 100)
+    stopMusicBtn.TextSize = 12
+
+    local stopCorner = Instance.new("UICorner")
+    stopCorner.CornerRadius = UDim.new(0, 8)
+    stopCorner.Parent = stopMusicBtn
+
+    -- Status Text
+    local musicStatusText = Instance.new("TextLabel")
+    musicStatusText.Parent = card
+    musicStatusText.BackgroundTransparency = 1
+    musicStatusText.Position = UDim2.new(0, 14, 0, 166)
+    musicStatusText.Size = UDim2.new(1, -28, 0, 24)
+    musicStatusText.Font = Enum.Font.Gotham
+    musicStatusText.Text = "Status: Stopped"
+    musicStatusText.TextColor3 = Color3.fromRGB(140, 140, 160)
+    musicStatusText.TextSize = 11
+    musicStatusText.TextXAlignment = Enum.TextXAlignment.Left
+
+    -- Lógica de Arrastar a Barra de Volume
+    local draggingVolumeSlider = false
+    volumeBar.MouseButton1Down:Connect(function() draggingVolumeSlider = true end)
+    UserInputService.InputEnded:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then 
+            draggingVolumeSlider = false 
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(inp)
+        if draggingVolumeSlider and (inp.UserInputType == Enum.UserInputType.MouseMovement or inp.UserInputType == Enum.UserInputType.Touch) then
+            local pos = math.clamp((inp.Position.X - volumeBar.AbsolutePosition.X) / volumeBar.AbsoluteSize.X, 0, 1)
+            volumeBarFill.Size = UDim2.new(pos, 0, 1, 0)
+            currentMusicVolume = math.floor(pos * 100)
+            volumeTextLabel.Text = "Adjust the music volume: " .. currentMusicVolume .. "%"
+            if activeMusicPlayer then
+                activeMusicPlayer.Volume = currentMusicVolume / 100
+            end
+        end
+    end)
+
+    playMusicBtn.MouseButton1Click:Connect(function()
+        if not selectedSongId then
+            musicStatusText.Text = "Status: Selecione uma música primeiro!"
+            musicStatusText.TextColor3 = Color3.fromRGB(255, 200, 80)
+            return
+        end
+
+        if activeMusicPlayer then
+            activeMusicPlayer:Stop()
+            activeMusicPlayer:Destroy()
+            activeMusicPlayer = nil
+        end
+
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://" .. selectedSongId
+        sound.Volume = currentMusicVolume / 100
+        sound.Looped = true
+        sound.Parent = SoundService
+        sound:Play()
+
+        activeMusicPlayer = sound
+        musicStatusText.Text = "Status: Playing..."
+        musicStatusText.TextColor3 = Color3.fromRGB(80, 255, 150)
+    end)
+
+    stopMusicBtn.MouseButton1Click:Connect(function()
+        if activeMusicPlayer then
+            activeMusicPlayer:Stop()
+            activeMusicPlayer:Destroy()
+            activeMusicPlayer = nil
+        end
+        musicStatusText.Text = "Status: Stopped"
+        musicStatusText.TextColor3 = Color3.fromRGB(255, 100, 100)
+    end)
+end
+
+-- Criando a Phonk Playlist existente
+createMusicPlaylistCard("Phonk Playlist", {
+    {Name = "Aggressive Brazilian Phonk", Id = "102892380593258"},
+    {Name = "Festival Phonk", Id = "80059228606274"},
+    {Name = "Violin Phonk", Id = "80159531756934"},
+    {Name = "Night Drive Phonk", Id = "75764445212230"},
+    {Name = "BATIDA SELVAGEM", Id = "104603824839639"},
+    {Name = "GTR PHONK", Id = "83624433031847"},
+    {Name = "Metamorphosis", Id = "15689451063"},
+    {Name = "PHONK.exe", Id = "97192334657561"}
+})
+
+
+-- 2. Sounds
+local soundsPage = createTabPage("sounds", "🔊  SOUNDS")
+
+local function createSoundCard(titleText, passosId, pulosId)
+    local card = Instance.new("Frame")
+    card.Parent = soundsPage
+    card.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+    card.BackgroundTransparency = 0.4
+    card.BorderSizePixel = 0
+    card.Size = UDim2.new(1, -10, 0, 108)
+
+    local cardCorner = Instance.new("UICorner")
+    cardCorner.CornerRadius = UDim.new(0, 12)
+    cardCorner.Parent = card
+
+    local cardStroke = Instance.new("UIStroke")
+    cardStroke.Parent = card
+    cardStroke.Thickness = 1
+    cardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+    local cardTitle = Instance.new("TextLabel")
+    cardTitle.Parent = card
+    cardTitle.BackgroundTransparency = 1
+    cardTitle.Position = UDim2.new(0, 14, 0, 8)
+    cardTitle.Size = UDim2.new(1, -28, 0, 22)
+    cardTitle.Font = Enum.Font.GothamBold
+    cardTitle.Text = titleText
+    cardTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+    cardTitle.TextSize = 13
+    cardTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+    local function createInnerBtn(nameKey, yPos, soundId, isPassos)
+        local btn = Instance.new("TextButton")
+        btn.Parent = card
+        local activeState = false
+        local baseText = translations[currentLang][nameKey] or nameKey
+        btn.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+        btn.BackgroundTransparency = 0.1
+        btn.BorderSizePixel = 0
+        btn.Position = UDim2.new(0, 12, 0, yPos)
+        btn.Size = UDim2.new(1, -24, 0, 30)
+        btn.Font = Enum.Font.Gotham
+        btn.Text = "  " .. baseText
+        btn.TextColor3 = Color3.fromRGB(190, 190, 215)
+        btn.TextSize = 12
+        btn.TextXAlignment = Enum.TextXAlignment.Left
+
+        local indicator = Instance.new("TextLabel")
+        indicator.Parent = btn
+        indicator.BackgroundTransparency = 1
+        indicator.Position = UDim2.new(1, -65, 0, 0)
+        indicator.Size = UDim2.new(0, 50, 1, 0)
+        indicator.Font = Enum.Font.GothamBold
+        indicator.Text = "[OFF]"
+        indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+        indicator.TextSize = 11
+        indicator.TextXAlignment = Enum.TextXAlignment.Right
+
+        local btnCorner = Instance.new("UICorner")
+        btnCorner.CornerRadius = UDim.new(0, 8)
+        btnCorner.Parent = btn
+
+        table.insert(registeredElements, {
+            type = "subbutton",
+            btn = btn,
+            key = nameKey
+        })
+
+        table.insert(activeSoundButtons, {
+            button = btn,
+            indicator = indicator,
+            type = isPassos and "passos" or "pulos",
+            cardName = titleText,
+            setState = function(state) activeState = state end
+        })
+
+        btn.MouseButton1Click:Connect(function()
+            if soundId == "" then return end
+
+            for _, item in ipairs(activeSoundButtons) do
+                if item.type == (isPassos and "passos" or "pulos") then
+                    if item.button ~= btn then
+                        item.setState(false)
+                        item.button.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+                        item.indicator.Text = "[OFF]"
+                        item.indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+                    end
+                end
+            end
+
+            activeState = not activeState
+
+            if activeState then
+                btn.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
+                indicator.Text = "[ON]"
+                indicator.TextColor3 = Color3.fromRGB(80, 255, 150)
+                if isPassos then activePassosSound = soundId else activePulosSound = soundId end
+            else
+                btn.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+                indicator.Text = "[OFF]"
+                indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+                if isPassos then if activePassosSound == soundId then activePassosSound = nil end
+                else if activePulosSound == soundId then activePulosSound = nil end end
+            end
+
+            updateAllCharactersSounds()
+        end)
+        return btn
+    end
+
+    createInnerBtn("passos", 34, passosId, true)
+    createInnerBtn("pulos", 68, pulosId, false)
+end
+
+createSoundCard("Bat", "rbxassetid://89746938623207", "rbxassetid://107335524413804")
+createSoundCard("Facility Gamer", "rbxassetid://92364073638525", "rbxassetid://101998425625154")
+createSoundCard("Mwaiconn", "", "")
+
+-- Card de Outros Pulos
+local outrosCard = Instance.new("Frame")
+outrosCard.Parent = soundsPage
+outrosCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+outrosCard.BackgroundTransparency = 0.4
+outrosCard.BorderSizePixel = 0
+outrosCard.Size = UDim2.new(1, -10, 0, 144)
+
+local outrosCardCorner = Instance.new("UICorner")
+outrosCardCorner.CornerRadius = UDim.new(0, 12)
+outrosCardCorner.Parent = outrosCard
+
+local outrosCardStroke = Instance.new("UIStroke")
+outrosCardStroke.Parent = outrosCard
+outrosCardStroke.Thickness = 1
+outrosCardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local outrosCardTitle = Instance.new("TextLabel")
+outrosCardTitle.Parent = outrosCard
+outrosCardTitle.BackgroundTransparency = 1
+outrosCardTitle.Position = UDim2.new(0, 14, 0, 8)
+outrosCardTitle.Size = UDim2.new(1, -28, 0, 22)
+outrosCardTitle.Font = Enum.Font.GothamBold
+outrosCardTitle.Text = translations[currentLang].outrosPulos
+outrosCardTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+outrosCardTitle.TextSize = 13
+outrosCardTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, { type = "outros_title", btn = outrosCardTitle })
+
+local activeAvulsoButtons = {}
+
+local function createOutrosSubBtn(textName, assetId, yPos)
+    local b = Instance.new("TextButton")
+    b.Parent = outrosCard
+    local activeState = false
+    b.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+    b.BackgroundTransparency = 0.1
+    b.BorderSizePixel = 0
+    b.Position = UDim2.new(0, 12, 0, yPos)
+    b.Size = UDim2.new(1, -24, 0, 30)
+    b.Font = Enum.Font.Gotham
+    b.Text = "  " .. textName
+    b.TextColor3 = Color3.fromRGB(190, 190, 215)
+    b.TextSize = 12
+    b.TextXAlignment = Enum.TextXAlignment.Left
+
+    local indicator = Instance.new("TextLabel")
+    indicator.Parent = b
+    indicator.BackgroundTransparency = 1
+    indicator.Position = UDim2.new(1, -65, 0, 0)
+    indicator.Size = UDim2.new(0, 50, 1, 0)
+    indicator.Font = Enum.Font.GothamBold
+    indicator.Text = "[OFF]"
+    indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+    indicator.TextSize = 11
+    indicator.TextXAlignment = Enum.TextXAlignment.Right
+
+    local bCorner = Instance.new("UICorner")
+    bCorner.CornerRadius = UDim.new(0, 8)
+    bCorner.Parent = b
+
+    local buttonData = {
+        button = b,
+        indicator = indicator,
+        keyName = textName,
+        soundId = "rbxassetid://" .. tostring(assetId),
+        setState = function(state) activeState = state end
+    }
+    table.insert(activeAvulsoButtons, buttonData)
+
+    b.MouseButton1Click:Connect(function()
+        for _, item in ipairs(activeAvulsoButtons) do
+            if item.button ~= b then
+                item.setState(false)
+                item.button.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+                item.indicator.Text = "[OFF]"
+                item.indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+            end
+        end
+
+        activeState = not activeState
+
+        if activeState then
+            b.BackgroundColor3 = Color3.fromRGB(20, 70, 45)
+            indicator.Text = "[ON]"
+            indicator.TextColor3 = Color3.fromRGB(80, 255, 150)
+            activePulosSound = buttonData.soundId
+        else
+            b.BackgroundColor3 = Color3.fromRGB(26, 26, 36)
+            indicator.Text = "[OFF]"
+            indicator.TextColor3 = Color3.fromRGB(140, 140, 160)
+            if activePulosSound == buttonData.soundId then activePulosSound = nil end
+        end
+
+        updateAllCharactersSounds()
+    end)
+end
+
+createOutrosSubBtn("Noobtwopoint", "109734145773266", 34)
+createOutrosSubBtn("Echo", "84801715196210", 68)
+createOutrosSubBtn("Laugh", "76693372307958", 102)
+
+-- 3. Fog
+local fogPage = createTabPage("fog", "🌫️  FOG")
+local origFogEnd = Lighting.FogEnd
+local origFogColor = Lighting.FogColor
+
+local BlackFogGammaSettings = { Enabled = false, GammaValue = 1, OriginalBrightness = nil, ColorCorrection = nil }
+
+local function UpdateBlackFogGamma()
+    if not BlackFogGammaSettings.Enabled or not BlackFogGammaSettings.ColorCorrection then return end
+    local gamma = BlackFogGammaSettings.GammaValue
+    BlackFogGammaSettings.ColorCorrection.Brightness = (gamma - 1) * 0.5
+    BlackFogGammaSettings.ColorCorrection.Contrast = gamma * 0.2
+end
+
+local function StartBlackFogGamma()
+    if not BlackFogGammaSettings.ColorCorrection then
+        BlackFogGammaSettings.ColorCorrection = Lighting:FindFirstChild("BlackFogGammaCorrection")
+        if not BlackFogGammaSettings.ColorCorrection then
+            BlackFogGammaSettings.ColorCorrection = Instance.new("ColorCorrectionEffect")
+            BlackFogGammaSettings.ColorCorrection.Name = "BlackFogGammaCorrection"
+            BlackFogGammaSettings.ColorCorrection.Parent = Lighting
+        end
+        BlackFogGammaSettings.OriginalBrightness = BlackFogGammaSettings.ColorCorrection.Brightness
+    end
+    UpdateBlackFogGamma()
+end
+
+local function StopBlackFogGamma()
+    if BlackFogGammaSettings.ColorCorrection and BlackFogGammaSettings.OriginalBrightness then
+        BlackFogGammaSettings.ColorCorrection.Brightness = BlackFogGammaSettings.OriginalBrightness
+        BlackFogGammaSettings.ColorCorrection.Contrast = 0
+    end
+end
+
+local fogCard = Instance.new("Frame")
+fogCard.Parent = fogPage
+fogCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+fogCard.BackgroundTransparency = 0.4
+fogCard.BorderSizePixel = 0
+fogCard.Size = UDim2.new(1, -10, 0, 108)
+
+local fogCardCorner = Instance.new("UICorner")
+fogCardCorner.CornerRadius = UDim.new(0, 12)
+fogCardCorner.Parent = fogCard
+
+local fogCardStroke = Instance.new("UIStroke")
+fogCardStroke.Parent = fogCard
+fogCardStroke.Thickness = 1
+fogCardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local fogCardTitle = Instance.new("TextLabel")
+fogCardTitle.Parent = fogCard
+fogCardTitle.BackgroundTransparency = 1
+fogCardTitle.Position = UDim2.new(0, 14, 0, 8)
+fogCardTitle.Size = UDim2.new(1, -28, 0, 22)
+fogCardTitle.Font = Enum.Font.GothamBold
+fogCardTitle.Text = "Fog Config"
+fogCardTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+fogCardTitle.TextSize = 13
+fogCardTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+createCardSubButton(fogCard, "blackFog", 34, function(enabled)
+    BlackFogGammaSettings.Enabled = enabled
+    if enabled then
+        Lighting.FogColor = Color3.fromRGB(0, 0, 0)
+        Lighting.FogEnd = 300
+        Lighting.Ambient = Color3.fromRGB(10, 10, 10)
+        StartBlackFogGamma()
+    else
+        Lighting.FogColor = origFogColor
+        Lighting.FogEnd = origFogEnd
+        Lighting.Ambient = Color3.fromRGB(128, 128, 128)
+        StopBlackFogGamma()
+    end
+end)
+
+local flashlightObj = nil
+createCardSubButton(fogCard, "flashlight", 68, function(enabled)
+    local character = LocalPlayer.Character
+    if not character then return end
+    local head = character:FindFirstChild("Head")
+    if not head then return end
+
+    if enabled then
+        if not flashlightObj then
+            flashlightObj = Instance.new("PointLight")
+            flashlightObj.Name = "CustomFlashlight"
+            flashlightObj.Range = 60
+            flashlightObj.Brightness = 1
+            flashlightObj.Parent = head
+        end
+        flashlightObj.Enabled = true
+    else
+        if flashlightObj then flashlightObj.Enabled = false end
+    end
+end)
+
+local flashIntensityFrame = Instance.new("Frame")
+flashIntensityFrame.Parent = fogPage
+flashIntensityFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+flashIntensityFrame.BackgroundTransparency = 0.4
+flashIntensityFrame.BorderSizePixel = 0
+flashIntensityFrame.Size = UDim2.new(1, -10, 0, 56)
+
+local flashFrameCorner = Instance.new("UICorner")
+flashFrameCorner.CornerRadius = UDim.new(0, 10)
+flashFrameCorner.Parent = flashIntensityFrame
+
+local currentFlashIntensity = 50
+local flashIntensityLabel = Instance.new("TextLabel")
+flashIntensityLabel.Parent = flashIntensityFrame
+flashIntensityLabel.BackgroundTransparency = 1
+flashIntensityLabel.Position = UDim2.new(0, 10, 0, 6)
+flashIntensityLabel.Size = UDim2.new(1, -20, 0, 20)
+flashIntensityLabel.Font = Enum.Font.Gotham
+flashIntensityLabel.Text = "  " .. translations[currentLang].flashlightIntensity .. ": " .. currentFlashIntensity .. "%"
+flashIntensityLabel.TextColor3 = Color3.fromRGB(190, 190, 215)
+flashIntensityLabel.TextSize = 12
+flashIntensityLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {
+    type = "slider_label",
+    btn = flashIntensityLabel,
+    key = "flashlightIntensity",
+    getValue = function() return currentFlashIntensity end,
+    suffix = "%"
+})
+
+local flashBar = Instance.new("TextButton")
+flashBar.Parent = flashIntensityFrame
+flashBar.BackgroundColor3 = Color3.fromRGB(30, 30, 44)
+flashBar.BorderSizePixel = 0
+flashBar.Position = UDim2.new(0, 14, 0, 32)
+flashBar.Size = UDim2.new(1, -28, 0, 10)
+flashBar.Text = ""
+
+local flashBarCorner = Instance.new("UICorner")
+flashBarCorner.CornerRadius = UDim.new(0, 5)
+flashBarCorner.Parent = flashBar
+
+local flashBarFill = Instance.new("Frame")
+flashBarFill.Parent = flashBar
+flashBarFill.BackgroundColor3 = Color3.fromRGB(50, 130, 255)
+flashBarFill.BorderSizePixel = 0
+flashBarFill.Size = UDim2.new(0.5, 0, 1, 0)
+
+local flashFillCorner = Instance.new("UICorner")
+flashFillCorner.CornerRadius = UDim.new(0, 5)
+flashFillCorner.Parent = flashBarFill
+
+local draggingFlashSlider = false
+flashBar.MouseButton1Down:Connect(function() draggingFlashSlider = true end)
+UserInputService.InputEnded:Connect(function(inp)
+    if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then draggingFlashSlider = false end
+end)
+UserInputService.InputChanged:Connect(function(inp)
+    if draggingFlashSlider and (inp.UserInputType == Enum.UserInputType.MouseMovement or inp.UserInputType == Enum.UserInputType.Touch) then
+        local pos = math.clamp((inp.Position.X - flashBar.AbsolutePosition.X) / flashBar.AbsoluteSize.X, 0, 1)
+        flashBarFill.Size = UDim2.new(pos, 0, 1, 0)
+        currentFlashIntensity = math.floor(pos * 100)
+        flashIntensityLabel.Text = "  " .. (translations[currentLang].flashlightIntensity or "Flashlight Intensity") .. ": " .. currentFlashIntensity .. "%"
+        if flashlightObj then flashlightObj.Brightness = (currentFlashIntensity / 100) * 5 end
+    end
+end)
+
+-- 4. Cursors
+local cursorsPage = createTabPage("cursors", "🖱️  CURSORS")
+local customCursorImage = Instance.new("ImageLabel")
+customCursorImage.Name = "CustomCursor"
+customCursorImage.Parent = ScreenGui
+customCursorImage.BackgroundTransparency = 1
+customCursorImage.AnchorPoint = Vector2.new(0.5, 0.5)
+customCursorImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+customCursorImage.Size = UDim2.new(0, 40, 0, 40)
+customCursorImage.Visible = false
+customCursorImage.ZIndex = 999
+
+local activeCursorBtn = nil
+local cursorGrid = Instance.new("ScrollingFrame")
+cursorGrid.Parent = cursorsPage
+cursorGrid.BackgroundTransparency = 1
+cursorGrid.Size = UDim2.new(1, -10, 0, 190)
+cursorGrid.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+cursorGrid.ScrollBarThickness = 2
+
+local gridLayout = Instance.new("UIGridLayout")
+gridLayout.Parent = cursorGrid
+gridLayout.CellSize = UDim2.new(0, 46, 0, 46)
+gridLayout.CellPadding = UDim2.new(0, 10, 0, 10)
+
+local cursorIDs = {
+    "rbxassetid://110201743575764",
+    "rbxassetid://138705151461884",
+    "rbxassetid://105637384555128",
+    "rbxassetid://88144864342462",
+    "rbxassetid://104610644874074",
+    "rbxassetid://109523210894050",
+    "rbxassetid://98457052415434",
+    "rbxassetid://119596749275883",
+    "rbxassetid://123709646996233",
+    "rbxassetid://130974728848604",
+    "rbxassetid://99547796651902",
+    "rbxassetid://127666532089348",
+    "rbxassetid://118306291436336",
+    "rbxassetid://101137035342998"
+}
+
+for _, id in ipairs(cursorIDs) do
+    local imgBtn = Instance.new("ImageButton")
+    imgBtn.Parent = cursorGrid
+    imgBtn.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+    imgBtn.BorderSizePixel = 0
+    imgBtn.Image = id
+
+    local imgCorner = Instance.new("UICorner")
+    imgCorner.CornerRadius = UDim.new(0, 10)
+    imgCorner.Parent = imgBtn
+
+    local imgStroke = Instance.new("UIStroke")
+    imgStroke.Parent = imgBtn
+    imgStroke.Transparency = 1
+    imgStroke.Color = Color3.fromRGB(50, 130, 255)
+
+    imgBtn.MouseButton1Click:Connect(function()
+        if activeCursorBtn and activeCursorBtn.btn == imgBtn then
+            customCursorImage.Visible = false
+            imgBtn.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+            imgStroke.Transparency = 1
+            activeCursorBtn = nil
+        else
+            if activeCursorBtn then 
+                activeCursorBtn.btn.BackgroundColor3 = Color3.fromRGB(18, 18, 25) 
+                activeCursorBtn.stroke.Transparency = 1
+            end
+            customCursorImage.Image = id
+            customCursorImage.Visible = true
+            imgBtn.BackgroundColor3 = Color3.fromRGB(25, 60, 140)
+            imgStroke.Transparency = 0
+            activeCursorBtn = {btn = imgBtn, stroke = imgStroke}
+        end
+    end)
+end
+
+local cursorSizeFrame = Instance.new("Frame")
+cursorSizeFrame.Parent = cursorsPage
+cursorSizeFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+cursorSizeFrame.BackgroundTransparency = 0.4
+cursorSizeFrame.BorderSizePixel = 0
+cursorSizeFrame.Size = UDim2.new(1, -10, 0, 56)
+
+local cursorFrameCorner = Instance.new("UICorner")
+cursorFrameCorner.CornerRadius = UDim.new(0, 10)
+cursorFrameCorner.Parent = cursorSizeFrame
+
+local currentCursorSize = 40
+local cursorSizeLabel = Instance.new("TextLabel")
+cursorSizeLabel.Parent = cursorSizeFrame
+cursorSizeLabel.BackgroundTransparency = 1
+cursorSizeLabel.Position = UDim2.new(0, 10, 0, 6)
+cursorSizeLabel.Size = UDim2.new(1, -20, 0, 20)
+cursorSizeLabel.Font = Enum.Font.Gotham
+cursorSizeLabel.Text = "  " .. translations[currentLang].cursorSize .. ": " .. currentCursorSize .. "px"
+cursorSizeLabel.TextColor3 = Color3.fromRGB(190, 190, 215)
+cursorSizeLabel.TextSize = 12
+cursorSizeLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {
+    type = "slider_label",
+    btn = cursorSizeLabel,
+    key = "cursorSize",
+    getValue = function() return currentCursorSize end,
+    suffix = "px"
+})
+
+local cursorBar = Instance.new("TextButton")
+cursorBar.Parent = cursorSizeFrame
+cursorBar.BackgroundColor3 = Color3.fromRGB(30, 30, 44)
+cursorBar.BorderSizePixel = 0
+cursorBar.Position = UDim2.new(0, 14, 0, 32)
+cursorBar.Size = UDim2.new(1, -28, 0, 10)
+cursorBar.Text = ""
+
+local cursorBarCorner = Instance.new("UICorner")
+cursorBarCorner.CornerRadius = UDim.new(0, 5)
+cursorBarCorner.Parent = cursorBar
+
+local cursorBarFill = Instance.new("Frame")
+cursorBarFill.Parent = cursorBar
+cursorBarFill.BackgroundColor3 = Color3.fromRGB(50, 130, 255)
+cursorBarFill.BorderSizePixel = 0
+cursorBarFill.Size = UDim2.new(0.3, 0, 1, 0)
+
+local cursorFillCorner = Instance.new("UICorner")
+cursorFillCorner.CornerRadius = UDim.new(0, 5)
+cursorFillCorner.Parent = cursorBarFill
+
+local draggingCursorSlider = false
+cursorBar.MouseButton1Down:Connect(function() draggingCursorSlider = true end)
+UserInputService.InputEnded:Connect(function(inp)
+    if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then draggingCursorSlider = false end
+end)
+UserInputService.InputChanged:Connect(function(inp)
+    if draggingCursorSlider and (inp.UserInputType == Enum.UserInputType.MouseMovement or inp.UserInputType == Enum.UserInputType.Touch) then
+        local pos = math.clamp((inp.Position.X - cursorBar.AbsolutePosition.X) / cursorBar.AbsoluteSize.X, 0, 1)
+        cursorBarFill.Size = UDim2.new(pos, 0, 1, 0)
+        currentCursorSize = math.floor(20 + (pos * 80))
+        cursorSizeLabel.Text = "  " .. (translations[currentLang].cursorSize or "Cursor Size") .. ": " .. currentCursorSize .. "px"
+        customCursorImage.Size = UDim2.new(0, currentCursorSize, 0, currentCursorSize)
+    end
+end)
+
+-- 5. Textures
+local texturesPage = createTabPage("textures", "🎨  TEXTURES")
+
+local function isPlayerCharacter(part)
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Character and part:IsDescendantOf(player.Character) then return true end
+    end
+    return false
+end
+
+local texturesCard = Instance.new("Frame")
+texturesCard.Parent = texturesPage
+texturesCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+texturesCard.BackgroundTransparency = 0.4
+texturesCard.BorderSizePixel = 0
+texturesCard.Size = UDim2.new(1, -10, 0, 176)
+
+local texturesCardCorner = Instance.new("UICorner")
+texturesCardCorner.CornerRadius = UDim.new(0, 12)
+texturesCardCorner.Parent = texturesCard
+
+local texturesCardStroke = Instance.new("UIStroke")
+texturesCardStroke.Parent = texturesCard
+texturesCardStroke.Thickness = 1
+texturesCardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local texturesCardTitle = Instance.new("TextLabel")
+texturesCardTitle.Parent = texturesCard
+texturesCardTitle.BackgroundTransparency = 1
+texturesCardTitle.Position = UDim2.new(0, 14, 0, 8)
+texturesCardTitle.Size = UDim2.new(1, -28, 0, 22)
+texturesCardTitle.Font = Enum.Font.GothamBold
+texturesCardTitle.Text = "Maps Textures"
+texturesCardTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+texturesCardTitle.TextSize = 13
+texturesCardTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local textureButtons = {}
+local function registerTextureButton(keyName, yPos, callback)
+    local btnRef = createCardSubButton(texturesCard, keyName, yPos, function(enabled)
+        if enabled then
+            for _, item in ipairs(textureButtons) do
+                if item.key ~= keyName and item.getActive() then
+                    item.setActive(false)
+                    item.setVisual(false)
+                end
+            end
+        end
+        callback(enabled)
+    end)
+    table.insert(textureButtons, { key = keyName, getActive = function() return false end, setActive = function() end, setVisual = function() end })
+end
+
+local originalPartColors = {}
+createCardSubButton(texturesCard, "snowTexture", 34, function(enabled)
+    if enabled then
+        originalPartColors = {}
+        for _, obj in ipairs(workspace:GetDescendants()) do
+            if obj:IsA("BasePart") and not isPlayerCharacter(obj) then
+                originalPartColors[obj] = obj.Color
+                obj.Color = Color3.fromRGB(240, 240, 240)
+            end
+        end
+    else
+        for obj, originalColor in pairs(originalPartColors) do
+            if obj and obj.Parent then obj.Color = originalColor end
+        end
+        originalPartColors = {}
+    end
+end)
+
+local lavaDataStore = {}
+createCardSubButton(texturesCard, "lavaTexture", 68, function(enabled)
+    if enabled then
+        lavaDataStore = {}
+        for _, obj in ipairs(workspace:GetDescendants()) do
+            if obj:IsA("BasePart") and not isPlayerCharacter(obj) then
+                lavaDataStore[obj] = {color = obj.Color, material = obj.Material}
+                obj.Material = Enum.Material.Glass 
+                obj.Color = Color3.fromRGB(180, 50, 10) 
+            end
+        end
+    else
+        for obj, data in pairs(lavaDataStore) do
+            if obj and obj.Parent then obj.Color = data.color; obj.Material = data.material end
+        end
+        lavaDataStore = {}
+    end
+end)
+
+local faces = {"Front", "Back", "Bottom", "Top", "Right", "Left"}
+local minecraftMaterials = {
+    {"Wood", "rbxassetid://3258599312"}, {"WoodPlanks", "rbxassetid://8676581022"}, {"Brick", "rbxassetid://8558400252"},
+    {"Cobblestone", "rbxassetid://5003953441"}, {"Concrete", "rbxassetid://7341687607"}, {"DiamondPlate", "rbxassetid://6849247561"},
+    {"Fabric", "rbxassetid://118776397"}, {"Granite", "rbxassetid://4722586771"}, {"Grass", "rbxassetid://4722588177"},
+    {"Ice", "rbxassetid://3823766459"}, {"Marble", "rbxassetid://62967586"}, {"Metal", "rbxassetid://62967586"}, {"Sand", "rbxassetid://152572215"}
+}
+
+local createdTexturesStore = {}
+createCardSubButton(texturesCard, "minecraftTexture", 102, function(enabled)
+    if enabled then
+        createdTexturesStore = {}
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("BasePart") and not isPlayerCharacter(part) then
+                for _, mat in ipairs(minecraftMaterials) do
+                    if part.Material.Name == mat[1] then
+                        createdTexturesStore[part] = {mat = part.Material, addedTexts = {}}
+                        for _, face in ipairs(faces) do
+                            local tex = Instance.new("Texture")
+                            tex.Texture = mat[2]
+                            tex.Face = Enum.NormalId[face]
+                            tex.Color3 = part.Color
+                            tex.Transparency = part.Transparency
+                            tex.Parent = part
+                            table.insert(createdTexturesStore[part].addedTexts, tex)
+                        end
+                        part.Material = Enum.Material.SmoothPlastic
+                        break
+                    end
+                end
+            end
+        end
+    else
+        for part, data in pairs(createdTexturesStore) do
+            if part and part.Parent then
+                part.Material = data.mat
+                for _, tex in ipairs(data.addedTexts) do if tex and tex.Parent then tex:Destroy() end end
+            end
+        end
+        createdTexturesStore = {}
+    end
+end)
+
+local modifiedTextures = {}
+createCardSubButton(texturesCard, "removeTexture", 136, function(enabled)
+    if enabled then
+        modifiedTextures = {}
+        for _, obj in ipairs(workspace:GetDescendants()) do
+            if not isPlayerCharacter(obj) then
+                if obj:IsA("Texture") or obj:IsA("Decal") then
+                    table.insert(modifiedTextures, {item = obj, prop = "Transparency", val = obj.Transparency})
+                    obj.Transparency = 1
+                elseif obj:IsA("BasePart") then
+                    if obj.Material ~= Enum.Material.SmoothPlastic and obj.Material ~= Enum.Material.Neon then
+                        table.insert(modifiedTextures, {item = obj, prop = "Material", val = obj.Material})
+                        obj.Material = Enum.Material.SmoothPlastic
+                    end
+                end
+            end
+        end
+    else
+        for _, data in ipairs(modifiedTextures) do
+            if data.item and data.item.Parent then data.item[data.prop] = data.val end
+        end
+        modifiedTextures = {}
+    end
+end)
+
+-- 6. Icons
+local iconsPage = createTabPage("icons", "🎴  ICONS")
+
+local iconDescLabel = Instance.new("TextLabel")
+iconDescLabel.Parent = iconsPage
+iconDescLabel.BackgroundTransparency = 1
+iconDescLabel.Size = UDim2.new(1, -10, 0, 36)
+iconDescLabel.Font = Enum.Font.Gotham
+iconDescLabel.Text = translations[currentLang].iconDesc
+iconDescLabel.TextColor3 = Color3.fromRGB(190, 190, 215)
+iconDescLabel.TextSize = 12
+iconDescLabel.TextWrapped = true
+iconDescLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {type = "icon_desc", btn = iconDescLabel})
+
+local iconGrid = Instance.new("Frame")
+iconGrid.Parent = iconsPage
+iconGrid.BackgroundTransparency = 1
+iconGrid.Size = UDim2.new(1, -10, 0, 96)
+local iconGridLayout = Instance.new("UIGridLayout")
+iconGridLayout.Parent = iconGrid
+iconGridLayout.CellSize = UDim2.new(0, 46, 0, 46)
+iconGridLayout.CellPadding = UDim2.new(0, 10, 0, 10)
+
+local iconIDs = {
+    "rbxassetid://113727752884706",
+    "rbxassetid://99546673164168",
+    "rbxassetid://111910430870226",
+    "rbxassetid://92598806147897",
+    "rbxassetid://108263130764288",
+    "rbxassetid://140472822251884"
+}
+
+local activeIconBtn = nil
+
+for _, id in ipairs(iconIDs) do
+    local iconBtn = Instance.new("ImageButton")
+    iconBtn.Parent = iconGrid
+    iconBtn.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+    iconBtn.BorderSizePixel = 0
+    iconBtn.Image = id
+    iconBtn.ScaleType = Enum.ScaleType.Crop
+
+    local iconCorner = Instance.new("UICorner")
+    iconCorner.CornerRadius = UDim.new(0, 10)
+    iconCorner.Parent = iconBtn
+
+    local iconStroke = Instance.new("UIStroke")
+    iconStroke.Parent = iconBtn
+    iconStroke.Transparency = 1
+    iconStroke.Color = Color3.fromRGB(50, 130, 255)
+
+    iconBtn.MouseButton1Click:Connect(function()
+        if activeIconBtn then 
+            activeIconBtn.btn.BackgroundColor3 = Color3.fromRGB(18, 18, 25) 
+            activeIconBtn.stroke.Transparency = 1
+        end
+        ToggleButton.Image = id
+        iconBtn.BackgroundColor3 = Color3.fromRGB(25, 60, 140)
+        iconStroke.Transparency = 0
+        activeIconBtn = {btn = iconBtn, stroke = iconStroke}
+    end)
+end
+
+local selectBgLabel = Instance.new("TextLabel")
+selectBgLabel.Parent = iconsPage
+selectBgLabel.BackgroundTransparency = 1
+selectBgLabel.Size = UDim2.new(1, -10, 0, 25)
+selectBgLabel.Font = Enum.Font.GothamBold
+selectBgLabel.Text = translations[currentLang].selectBgTitle
+selectBgLabel.TextColor3 = Color3.fromRGB(230, 230, 250)
+selectBgLabel.TextSize = 13
+selectBgLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {type = "select_bg_title", btn = selectBgLabel})
+
+local bgDropdownBtn = Instance.new("TextButton")
+bgDropdownBtn.Parent = iconsPage
+bgDropdownBtn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+bgDropdownBtn.BackgroundTransparency = 0.2
+bgDropdownBtn.BorderSizePixel = 0
+bgDropdownBtn.Size = UDim2.new(1, -10, 0, 36)
+bgDropdownBtn.Font = Enum.Font.Gotham
+bgDropdownBtn.Text = translations[currentLang].selectBgBtn
+bgDropdownBtn.TextColor3 = Color3.fromRGB(190, 190, 215)
+bgDropdownBtn.TextSize = 12
+bgDropdownBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+local bgDropdownCorner = Instance.new("UICorner")
+bgDropdownCorner.CornerRadius = UDim.new(0, 8)
+bgDropdownCorner.Parent = bgDropdownBtn
+
+local bgDropdownStroke = Instance.new("UIStroke")
+bgDropdownStroke.Parent = bgDropdownBtn
+bgDropdownStroke.Thickness = 1
+bgDropdownStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local bgPadding = Instance.new("UIPadding")
+bgPadding.Parent = bgDropdownBtn
+bgPadding.PaddingLeft = UDim.new(0, 12)
+
+table.insert(registeredElements, {type = "select_bg_btn", btn = bgDropdownBtn})
+
+local bgDropdownList = Instance.new("Frame")
+bgDropdownList.Parent = iconsPage
+bgDropdownList.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+bgDropdownList.BorderSizePixel = 0
+bgDropdownList.Size = UDim2.new(1, -10, 0, 100)
+bgDropdownList.Visible = false
+bgDropdownList.ZIndex = 50
+
+local bgListCorner = Instance.new("UICorner")
+bgListCorner.CornerRadius = UDim.new(0, 8)
+bgListCorner.Parent = bgDropdownList
+
+local bgListStroke = Instance.new("UIStroke")
+bgListStroke.Parent = bgDropdownList
+bgListStroke.Thickness = 1
+bgListStroke.Color = Color3.fromRGB(60, 60, 80)
+
+local bgListLayout = Instance.new("UIListLayout")
+bgListLayout.Parent = bgDropdownList
+bgListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local backgroundsList = {
+    {"Background 1", "rbxassetid://115201614649170"},
+    {"Background 2", "rbxassetid://139394400011184"},
+    {"Background 3", "rbxassetid://88789869658559"}
+}
+
+for _, bgData in ipairs(backgroundsList) do
+    local bOptBtnSafe = Instance.new("TextButton")
+    bOptBtnSafe.Parent = bgDropdownList
+    bOptBtnSafe.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+    bOptBtnSafe.BorderSizePixel = 0
+    bOptBtnSafe.Size = UDim2.new(1, 0, 0, 32)
+    bOptBtnSafe.Font = Enum.Font.Gotham
+    bOptBtnSafe.Text = "  " .. bgData[1]
+    bOptBtnSafe.TextColor3 = Color3.fromRGB(190, 190, 215)
+    bOptBtnSafe.TextSize = 12
+    bOptBtnSafe.TextXAlignment = Enum.TextXAlignment.Left
+
+    bOptBtnSafe.MouseButton1Click:Connect(function()
+        MainFrame.Image = bgData[2]
+        bgDropdownBtn.Text = "  " .. bgData[1] .. " ▼"
+        bgDropdownList.Visible = false
+    end)
+end
+
+bgDropdownBtn.MouseButton1Click:Connect(function()
+    bgDropdownList.Visible = not bgDropdownList.Visible
+end)
+
+-- 7. Avatar
+local avatarPage = createTabPage("avatar", "👤  AVATAR")
+
+local avatarCard = Instance.new("Frame")
+avatarCard.Parent = avatarPage
+avatarCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+avatarCard.BackgroundTransparency = 0.4
+avatarCard.BorderSizePixel = 0
+avatarCard.Size = UDim2.new(1, -10, 0, 186)
+
+local avatarCardCorner = Instance.new("UICorner")
+avatarCardCorner.CornerRadius = UDim.new(0, 12)
+avatarCardCorner.Parent = avatarCard
+
+local avatarCardStroke = Instance.new("UIStroke")
+avatarCardStroke.Parent = avatarCard
+avatarCardStroke.Thickness = 1
+avatarCardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local labelTarget = Instance.new("TextLabel")
+labelTarget.Parent = avatarCard
+labelTarget.BackgroundTransparency = 1
+labelTarget.Position = UDim2.new(0, 12, 0, 10)
+labelTarget.Size = UDim2.new(1, -24, 0, 20)
+labelTarget.Font = Enum.Font.GothamBold
+labelTarget.Text = translations[currentLang].targetPlayerTitle
+labelTarget.TextColor3 = Color3.fromRGB(230, 230, 250)
+labelTarget.TextSize = 12
+labelTarget.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {type = "avatar_label_1", btn = labelTarget})
+
+local inputTargetBox = Instance.new("TextBox")
+inputTargetBox.Parent = avatarCard
+inputTargetBox.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+inputTargetBox.BackgroundTransparency = 0.2
+inputTargetBox.BorderSizePixel = 0
+inputTargetBox.Position = UDim2.new(0, 12, 0, 34)
+inputTargetBox.Size = UDim2.new(1, -24, 0, 32)
+inputTargetBox.Font = Enum.Font.Gotham
+inputTargetBox.PlaceholderText = "Type the player in game"
+inputTargetBox.Text = LocalPlayer.Name
+inputTargetBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+inputTargetBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 150)
+inputTargetBox.TextSize = 12
+inputTargetBox.ClearTextOnFocus = false
+
+local inputTargetCorner = Instance.new("UICorner")
+inputTargetCorner.CornerRadius = UDim.new(0, 8)
+inputTargetCorner.Parent = inputTargetBox
+
+local inputTargetStroke = Instance.new("UIStroke")
+inputTargetStroke.Parent = inputTargetBox
+inputTargetStroke.Thickness = 1
+inputTargetStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local labelSkin = Instance.new("TextLabel")
+labelSkin.Parent = avatarCard
+labelSkin.BackgroundTransparency = 1
+labelSkin.Position = UDim2.new(0, 12, 0, 74)
+labelSkin.Size = UDim2.new(1, -24, 0, 20)
+labelSkin.Font = Enum.Font.GothamBold
+labelSkin.Text = translations[currentLang].skinInputTitle
+labelSkin.TextColor3 = Color3.fromRGB(230, 230, 250)
+labelSkin.TextSize = 12
+labelSkin.TextXAlignment = Enum.TextXAlignment.Left
+
+table.insert(registeredElements, {type = "avatar_label_2", btn = labelSkin})
+
+local inputSkinBox = Instance.new("TextBox")
+inputSkinBox.Parent = avatarCard
+inputSkinBox.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+inputSkinBox.BackgroundTransparency = 0.2
+inputSkinBox.BorderSizePixel = 0
+inputSkinBox.Position = UDim2.new(0, 12, 0, 98)
+inputSkinBox.Size = UDim2.new(1, -24, 0, 32)
+inputSkinBox.Font = Enum.Font.Gotham
+inputSkinBox.PlaceholderText = "Type the user to copy skin"
+inputSkinBox.Text = ""
+inputSkinBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+inputSkinBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 150)
+inputSkinBox.TextSize = 12
+inputSkinBox.ClearTextOnFocus = false
+
+local inputSkinCorner = Instance.new("UICorner")
+inputSkinCorner.CornerRadius = UDim.new(0, 8)
+inputSkinCorner.Parent = inputSkinBox
+
+local inputSkinStroke = Instance.new("UIStroke")
+inputSkinStroke.Parent = inputSkinBox
+inputSkinStroke.Thickness = 1
+inputSkinStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local applyAvatarBtn = Instance.new("TextButton")
+applyAvatarBtn.Parent = avatarCard
+applyAvatarBtn.BackgroundColor3 = Color3.fromRGB(40, 110, 230)
+applyAvatarBtn.BorderSizePixel = 0
+applyAvatarBtn.Position = UDim2.new(0, 12, 0, 140)
+applyAvatarBtn.Size = UDim2.new(1, -24, 0, 34)
+applyAvatarBtn.Font = Enum.Font.GothamBold
+applyAvatarBtn.Text = translations[currentLang].applyAvatarBtn
+applyAvatarBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+applyAvatarBtn.TextSize = 12
+
+local applyCorner = Instance.new("UICorner")
+applyCorner.CornerRadius = UDim.new(0, 8)
+applyCorner.Parent = applyAvatarBtn
+
+table.insert(registeredElements, {type = "avatar_btn", btn = applyAvatarBtn})
+
+applyAvatarBtn.MouseButton1Click:Connect(function()
+    local targetName = inputTargetBox.Text
+    if targetName == "" then targetName = LocalPlayer.Name end
+
+    local targetPlayer = Players:FindFirstChild(targetName)
+    if not targetPlayer then
+        pcall(function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "AVATAR CHANGER", Text = "Target player not found in game!", Duration = 3
+            })
+        end)
+        return
+    end
+
+    local skinValText = inputSkinBox.Text
+    local skinUserId = tonumber(skinValText)
+
+    if not skinUserId and skinValText ~= "" then
+        local successName, resultId = pcall(function() return Players:GetUserIdFromNameAsync(skinValText) end)
+        if successName then skinUserId = resultId end
+    end
+
+    if not skinUserId then
+        pcall(function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "AVATAR CHANGER", Text = "Invalid username or ID!", Duration = 3
+            })
+        end)
+        return
+    end
+
+    local success = pcall(function()
+        local character = targetPlayer.Character
+        if character then
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+                local successDesc, targetDesc = pcall(function() return Players:GetHumanoidDescriptionFromUserId(skinUserId) end)
+                if successDesc and targetDesc then humanoid:ApplyDescription(targetDesc) end
+            end
+        end
+    end)
+
+    if success then
+        pcall(function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "AVATAR CHANGER", Text = "Avatar successfully applied to " .. targetPlayer.Name .. "!", Duration = 3
+            })
+        end)
+    end
+end)
+
+-- 8. Customization
+local customizationPage = createTabPage("customization", "⚙️  CUSTOMIZATION")
+
+local customCard = Instance.new("Frame")
+customCard.Parent = customizationPage
+customCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+customCard.BackgroundTransparency = 0.4
+customCard.BorderSizePixel = 0
+customCard.Size = UDim2.new(1, -10, 0, 276)
+
+local customCardCorner = Instance.new("UICorner")
+customCardCorner.CornerRadius = UDim.new(0, 12)
+customCardCorner.Parent = customCard
+
+local customCardStroke = Instance.new("UIStroke")
+customCardStroke.Parent = customCard
+customCardStroke.Thickness = 1
+customCardStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local labelNameTitle = Instance.new("TextLabel")
+labelNameTitle.Parent = customCard
+labelNameTitle.BackgroundTransparency = 1
+labelNameTitle.Position = UDim2.new(0, 12, 0, 10)
+labelNameTitle.Size = UDim2.new(1, -24, 0, 20)
+labelNameTitle.Font = Enum.Font.GothamBold
+labelNameTitle.Text = "Change Name"
+labelNameTitle.TextColor3 = Color3.fromRGB(230, 230, 250)
+labelNameTitle.TextSize = 12
+labelNameTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local inputNameBox = Instance.new("TextBox")
+inputNameBox.Parent = customCard
+inputNameBox.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+inputNameBox.BackgroundTransparency = 0.2
+inputNameBox.BorderSizePixel = 0
+inputNameBox.Position = UDim2.new(0, 12, 0, 32)
+inputNameBox.Size = UDim2.new(1, -24, 0, 30)
+inputNameBox.Font = Enum.Font.Gotham
+inputNameBox.PlaceholderText = "Type new name here"
+inputNameBox.Text = "TotallyFer"
+inputNameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+inputNameBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 150)
+inputNameBox.TextSize = 12
+inputNameBox.ClearTextOnFocus = false
+
+local inputNameCorner = Instance.new("UICorner")
+inputNameCorner.CornerRadius = UDim.new(0, 8)
+inputNameCorner.Parent = inputNameBox
+
+local inputNameStroke = Instance.new("UIStroke")
+inputNameStroke.Parent = inputNameBox
+inputNameStroke.Thickness = 1
+inputNameStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local labelLevelTitle = Instance.new("TextLabel")
+labelLevelTitle.Parent = customCard
+labelLevelTitle.BackgroundTransparency = 1
+labelLevelTitle.Position = UDim2.new(0, 12, 0, 68)
+labelLevelTitle.Size = UDim2.new(1, -24, 0, 20)
+labelLevelTitle.Font = Enum.Font.GothamBold
+labelLevelTitle.Text = "Change Level"
+labelLevelTitle.TextColor3 = Color3.fromRGB(230, 230, 250)
+labelLevelTitle.TextSize = 12
+labelLevelTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local inputLevelBox = Instance.new("TextBox")
+inputLevelBox.Parent = customCard
+inputLevelBox.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+inputLevelBox.BackgroundTransparency = 0.2
+inputLevelBox.BorderSizePixel = 0
+inputLevelBox.Position = UDim2.new(0, 12, 0, 90)
+inputLevelBox.Size = UDim2.new(1, -24, 0, 30)
+inputLevelBox.Font = Enum.Font.Gotham
+inputLevelBox.PlaceholderText = "Type new level here"
+inputLevelBox.Text = "1265"
+inputLevelBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+inputLevelBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 150)
+inputLevelBox.TextSize = 12
+inputLevelBox.ClearTextOnFocus = false
+
+local inputLevelCorner = Instance.new("UICorner")
+inputLevelCorner.CornerRadius = UDim.new(0, 8)
+inputLevelCorner.Parent = inputLevelBox
+
+local inputLevelStroke = Instance.new("UIStroke")
+inputLevelStroke.Parent = inputLevelBox
+inputLevelStroke.Thickness = 1
+inputLevelStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local selectIconBtn = Instance.new("TextButton")
+selectIconBtn.Parent = customCard
+selectIconBtn.BackgroundColor3 = Color3.fromRGB(24, 24, 34)
+selectIconBtn.BackgroundTransparency = 0.2
+selectIconBtn.BorderSizePixel = 0
+selectIconBtn.Position = UDim2.new(0, 12, 0, 128)
+selectIconBtn.Size = UDim2.new(1, -24, 0, 32)
+selectIconBtn.Font = Enum.Font.Gotham
+selectIconBtn.Text = "  Select icon: VIP ▼"
+selectIconBtn.TextColor3 = Color3.fromRGB(190, 190, 215)
+selectIconBtn.TextSize = 12
+selectIconBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+local selectIconCorner = Instance.new("UICorner")
+selectIconCorner.CornerRadius = UDim.new(0, 8)
+selectIconCorner.Parent = selectIconBtn
+
+local selectIconStroke = Instance.new("UIStroke")
+selectIconStroke.Parent = selectIconBtn
+selectIconStroke.Thickness = 1
+selectIconStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local iconOptionsList = Instance.new("Frame")
+iconOptionsList.Parent = customCard
+iconOptionsList.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+iconOptionsList.BorderSizePixel = 0
+iconOptionsList.Position = UDim2.new(0, 12, 0, 162)
+iconOptionsList.Size = UDim2.new(1, -24, 0, 150)
+iconOptionsList.Visible = false
+iconOptionsList.ZIndex = 60
+
+local iconOptListCorner = Instance.new("UICorner")
+iconOptListCorner.CornerRadius = UDim.new(0, 8)
+iconOptListCorner.Parent = iconOptionsList
+
+local iconOptListStroke = Instance.new("UIStroke")
+iconOptListStroke.Parent = iconOptionsList
+iconOptListStroke.Thickness = 1
+iconOptListStroke.Color = Color3.fromRGB(60, 60, 80)
+
+local iconOptListLayout = Instance.new("UIListLayout")
+iconOptListLayout.Parent = iconOptionsList
+iconOptListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local badgeDataList = {
+    {Name = "VIP", Color = "#CC0000", Icon = "rbxassetid://1188562340"},
+    {Name = "LEAD DEV", Color = "#00FF33", Icon = "rbxassetid://18937953345"},
+    {Name = "MAN", Color = "#ff34c4", Icon = "rbxassetid://131476591459702"},
+    {Name = "DEV", Color = "#1E5CBA", Icon = "rbxassetid://18940006678"},
+    {Name = "QA", Color = "#F85E5E", Icon = "rbxassetid://18940008283"},
+    {Name = "MOD", Color = "#bc3fff", Icon = "rbxassetid://105155010224102"},
+    {Name = "CON", Color = "#1ABC9C", Icon = "rbxassetid://18940005647"}
+}
+
+local currentSelectedIconId = "rbxassetid://1188562340"
+
+for _, badge in ipairs(badgeDataList) do
+    local optBtn = Instance.new("TextButton")
+    optBtn.Parent = iconOptionsList
+    optBtn.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+    optBtn.BorderSizePixel = 0
+    optBtn.Size = UDim2.new(1, 0, 0, 28)
+    optBtn.Font = Enum.Font.Gotham
+    optBtn.Text = "  " .. badge.Name
+    optBtn.TextColor3 = Color3.fromRGB(190, 190, 215)
+    optBtn.TextSize = 12
+    optBtn.TextXAlignment = Enum.TextXAlignment.Left
+
+    optBtn.MouseButton1Click:Connect(function()
+        currentSelectedIconId = badge.Icon
+        selectIconBtn.Text = "  Select icon: " .. badge.Name .. " ▼"
+        iconOptionsList.Visible = false
+    end)
+end
+
+selectIconBtn.MouseButton1Click:Connect(function()
+    iconOptionsList.Visible = not iconOptionsList.Visible
+end)
+
+local applyCustomBtn = Instance.new("TextButton")
+applyCustomBtn.Parent = customCard
+applyCustomBtn.BackgroundColor3 = Color3.fromRGB(40, 110, 230)
+applyCustomBtn.BorderSizePixel = 0
+applyCustomBtn.Position = UDim2.new(0, 12, 0, 222)
+applyCustomBtn.Size = UDim2.new(1, -24, 0, 38)
+applyCustomBtn.Font = Enum.Font.GothamBold
+applyCustomBtn.Text = "Apply"
+applyCustomBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+applyCustomBtn.TextSize = 12
+
+local applyCustomCorner = Instance.new("UICorner")
+applyCustomCorner.CornerRadius = UDim.new(0, 8)
+applyCustomCorner.Parent = applyCustomBtn
+
+local activeSpoofName = "TotallyFer"
+local activeSpoofLevel = 1265
+local activeSpoofIcon = currentSelectedIconId
+local customizationActive = false
+
+RunService.PreRender:Connect(function()
+    if not customizationActive then return end
+
+    local pGui = LocalPlayer:FindFirstChild("PlayerGui")
+    if pGui then
+        local screenG = pGui:FindFirstChild("ScreenGui")
+        if screenG then
+            local namesFrame = screenG:FindFirstChild("PlayerNamesFrame")
+            if namesFrame then
+                local playerFrame = namesFrame:FindFirstChild(LocalPlayer.Name .. "PlayerFrame")
+                if playerFrame then
+                    local levelLabel = playerFrame:FindFirstChild("LevelLabel")
+                    local nameLabel = playerFrame:FindFirstChild("NameLabel")
+                    local iconLabel = playerFrame:FindFirstChild("IconLabel")
+
+                    if levelLabel then levelLabel.Text = tostring(activeSpoofLevel) end
+                    if nameLabel then nameLabel.Text = activeSpoofName end
+                    if playerFrame then playerFrame.LayoutOrder = -activeSpoofLevel end
+                    if iconLabel then iconLabel.Image = activeSpoofIcon end
+                end
+            end
+        end
+    end
+
+    if LocalPlayer.Character then
+        local hum = LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if hum then hum.DisplayName = activeSpoofName end
+    end
+end)
+
+applyCustomBtn.MouseButton1Click:Connect(function()
+    local spoofName = inputNameBox.Text
+    if spoofName == "" then spoofName = LocalPlayer.Name end
+    
+    local parsedLevel = tonumber(inputLevelBox.Text)
+    local spoofLevel = parsedLevel or 1265
+    local spoofIconId = currentSelectedIconId
+
+    activeSpoofName = spoofName
+    activeSpoofLevel = spoofLevel
+    activeSpoofIcon = spoofIconId
+    customizationActive = true
+
+    pcall(function()
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "CUSTOMIZATION", Text = "Name, Level and Icon successfully applied/updated!", Duration = 3
+        })
+    end)
+end)

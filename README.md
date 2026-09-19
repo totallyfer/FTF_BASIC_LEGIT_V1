@@ -1,1 +1,0 @@
-# FTF_BASIC_LEGIT_V1
