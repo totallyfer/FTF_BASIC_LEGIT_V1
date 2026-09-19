@@ -206,14 +206,14 @@ ContentContainer.Size = UDim2.new(1, -205, 1, -72)
 -- ==========================================
 local translations = {
     ["EN"] = {
-        music = "🎵  MUSIC",
-        sounds = "🔊  SOUNDS",
-        fog = "🌫️  FOG",
-        cursors = "🖱️  CURSORS",
-        textures = "🎨  TEXTURES",
-        icons = "🎴  ICONS",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MUSIC",
+        sounds = "SOUNDS",
+        fog = "FOG",
+        cursors = "CURSORS",
+        textures = "TEXTURES",
+        icons = "ICONS",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZATION",
         close = "Close",
         infoTitle = "  INFORMATIONS / CREDITS",
         blackFog = "Black Fog",
@@ -237,14 +237,14 @@ local translations = {
         applyAvatarBtn = "Apply Avatar"
     },
     ["PT"] = {
-        music = "🎵  MÚSICA",
-        sounds = "🔊  SONS",
-        fog = "🌫️  NEBLINA",
-        cursors = "🖱️  CURSORES",
-        textures = "🎨  TEXTURAS",
-        icons = "🎴  ÍCONES",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MÚSICA",
+        sounds = "SONS",
+        fog = "NEBLINA",
+        cursors = "CURSORES",
+        textures = "TEXTURAS",
+        icons = "ÍCONES",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZAÇÃO",
         close = "Fechar",
         infoTitle = "  INFORMAÇÕES / CRÉDITOS",
         blackFog = "Névoa Preta",
@@ -268,14 +268,14 @@ local translations = {
         applyAvatarBtn = "Aplicar Avatar"
     },
     ["ES"] = {
-        music = "🎵  MÚSICA",
-        sounds = "🔊  SONIDOS",
-        fog = "🌫️  NIEBLA",
-        cursors = "🖱️  CURSORES",
-        textures = "🎨  TEXTURAS",
-        icons = "🎴  ICONOS",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MÚSICA",
+        sounds = "SONIDOS",
+        fog = "NIEBLA",
+        cursors = "CURSORES",
+        textures = "TEXTURAS",
+        icons = "ICONOS",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZATION",
         close = "Cerrar",
         infoTitle = "  INFORMACIÓN / CRÉDITOS",
         blackFog = "Niebla Negra",
@@ -299,14 +299,14 @@ local translations = {
         applyAvatarBtn = "Aplicar Avatar"
     },
     ["DE"] = {
-        music = "🎵  MUSIK",
-        sounds = "🔊  TÖNE",
-        fog = "🌫️  NEBEL",
-        cursors = "🖱️  MAUSZEIGER",
-        textures = "🎨  TEXTUREN",
-        icons = "🎴  SYMBOLE",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MUSIK",
+        sounds = "TÖNE",
+        fog = "NEBEL",
+        cursors = "MAUSZEIGER",
+        textures = "TEXTUREN",
+        icons = "SYMBOLE",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZATION",
         close = "Schließen",
         infoTitle = "  INFORMATIONEN / CREDITS",
         blackFog = "Schwarzer Nebel",
@@ -330,14 +330,14 @@ local translations = {
         applyAvatarBtn = "Avatar Anwenden"
     },
     ["FR"] = {
-        music = "🎵  MUSIQUE",
-        sounds = "🔊  SONS",
-        fog = "🌫️  BROUILLARD",
-        cursors = "🖱️  CURSEURS",
-        textures = "🎨  TEXTURES",
-        icons = "🎴  ICÔNES",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MUSIQUE",
+        sounds = "SONS",
+        fog = "BROUILLARD",
+        cursors = "CURSEURS",
+        textures = "TEXTURES",
+        icons = "ICÔNES",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZATION",
         close = "Fermer",
         infoTitle = "  INFORMATIONS / CRÉDITS",
         blackFog = "Brouillard Noir",
@@ -361,14 +361,14 @@ local translations = {
         applyAvatarBtn = "Appliquer l'Avatar"
     },
     ["IT"] = {
-        music = "🎵  MUSICA",
-        sounds = "🔊  SUONI",
-        fog = "🌫️  NEBBIA",
-        cursors = "🖱️  CURSORI",
-        textures = "🎨  TEXTURES",
-        icons = "🎴  ICONE",
-        avatar = "👤  AVATAR",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "MUSICA",
+        sounds = "SUONI",
+        fog = "NEBBIA",
+        cursors = "CURSORI",
+        textures = "TEXTURES",
+        icons = "ICONE",
+        avatar = "AVATAR",
+        customization = "CUSTOMIZATION",
         close = "Chiudi",
         infoTitle = "  INFORMAZIONI / CREDITI",
         blackFog = "Nebbia Nera",
@@ -392,14 +392,14 @@ local translations = {
         applyAvatarBtn = "Applica Avatar"
     },
     ["JA"] = {
-        music = "🎵  音楽",
-        sounds = "🔊  サウンド",
-        fog = "🌫️  霧",
-        cursors = "🖱️  カーソル",
-        textures = "🎨  テクスチャ",
-        icons = "🎴  アイコン",
-        avatar = "👤  アバター",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "音楽",
+        sounds = "サウンド",
+        fog = "霧",
+        cursors = "カーソル",
+        textures = "テクスチャ",
+        icons = "アイコン",
+        avatar = "アバター",
+        customization = "CUSTOMIZATION",
         close = "閉じる",
         infoTitle = "  情報 / クレジット",
         blackFog = "黒い霧",
@@ -423,14 +423,14 @@ local translations = {
         applyAvatarBtn = "アバターを適用"
     },
     ["ZH"] = {
-        music = "🎵  音乐",
-        sounds = "🔊  声音",
-        fog = "🌫️  雾效",
-        cursors = "🖱️  光标",
-        textures = "🎨  纹理",
-        icons = "🎴  图标",
-        avatar = "👤  化身",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "音乐",
+        sounds = "声音",
+        fog = "雾效",
+        cursors = "光标",
+        textures = "纹理",
+        icons = "图标",
+        avatar = "化身",
+        customization = "CUSTOMIZATION",
         close = "关闭",
         infoTitle = "  信息 / 制作人员",
         blackFog = "黑雾",
@@ -454,14 +454,14 @@ local translations = {
         applyAvatarBtn = "应用化身"
     },
     ["HI"] = {
-        music = "🎵  संगीत",
-        sounds = "🔊  ध्वनि",
-        fog = "🌫️  कोहरा",
-        cursors = "🖱️  कर्सर",
-        textures = "🎨  टेक्सचर",
-        icons = "🎴  प्रतीक",
-        avatar = "👤  अवतार",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "संगीत",
+        sounds = "ध्वनि",
+        fog = "कोहरा",
+        cursors = "कर्सर",
+        textures = "टेक्सचर",
+        icons = "प्रतीक",
+        avatar = "अवतार",
+        customization = "CUSTOMIZATION",
         close = "बंद करें",
         infoTitle = "  जानकारी / श्रेय",
         blackFog = "काला कोहरा",
@@ -485,14 +485,14 @@ local translations = {
         applyAvatarBtn = "अवतार लागू करें"
     },
     ["AR"] = {
-        music = "🎵  موسيقى",
-        sounds = "🔊  الأصوات",
-        fog = "🌫️  ضباب",
-        cursors = "🖱️  المؤشرات",
-        textures = "🎨  الأنماط",
-        icons = "🎴  أيقونات",
-        avatar = "👤  الصورة الرمزية",
-        customization = "⚙️  CUSTOMIZATION",
+        music = "موسيقى",
+        sounds = "الأصوات",
+        fog = "ضباب",
+        cursors = "المؤشرات",
+        textures = "الأنماط",
+        icons = "أيقونات",
+        avatar = "الصورة الرمزية",
+        customization = "CUSTOMIZATION",
         close = "إغلاق",
         infoTitle = "  معلومات / الشكر والتقدير",
         blackFog = "ضباب أسود",
@@ -529,7 +529,7 @@ local function createTabPage(tabNameKey, defaultText, iconAssetId)
     page.Parent = ContentContainer
     page.BackgroundTransparency = 1
     page.Size = UDim2.new(1, 0, 1, 0)
-    page.CanvasSize = UDim2.new(0, 0, 3.5, 0)
+    page.CanvasSize = UDim2.new(0, 0, 4.5, 0)
     page.ScrollBarThickness = 3
     page.Visible = false
 
@@ -553,7 +553,6 @@ local function createTabPage(tabNameKey, defaultText, iconAssetId)
 
     local sidePadding = Instance.new("UIPadding")
     sidePadding.Parent = sideBtn
-    -- Aumentado o PaddingLeft para afastar bem o texto da imagem
     sidePadding.PaddingLeft = UDim.new(0, 36)
 
     local sideCorner = Instance.new("UICorner")
@@ -565,7 +564,6 @@ local function createTabPage(tabNameKey, defaultText, iconAssetId)
     sideStroke.Transparency = 1
     sideStroke.Color = Color3.fromRGB(60, 130, 255)
 
-    -- Imagem ao lado do botão da aba (posicionada mais à esquerda)
     local sideIcon = Instance.new("ImageLabel")
     sideIcon.Parent = sideBtn
     sideIcon.BackgroundTransparency = 1
@@ -923,10 +921,10 @@ local function updateAllCharactersSounds()
 end
 
 -- ==========================================
--- ABAS DO PAINEL (COM OS IDS CONFIGURADOS NAS ABAS)
+-- ABAS DO PAINEL
 -- ==========================================
 
--- 1. Music (ID: 125566233373316)
+-- 1. Music
 local musicPage = createTabPage("music", "MUSIC", 125566233373316)
 local activeMusicPlayer = nil
 local currentMusicVolume = 100
@@ -1175,8 +1173,7 @@ createMusicPlaylistCard("Phonk Playlist", {
     {Name = "PHONK.exe", Id = "97192334657561"}
 })
 
-
--- 2. Sounds (ID: 137428945039766)
+-- 2. Sounds
 local soundsPage = createTabPage("sounds", "SOUNDS", 137428945039766)
 
 local function createSoundCard(titleText, passosId, pulosId)
@@ -1396,7 +1393,7 @@ createOutrosSubBtn("Noobtwopoint", "109734145773266", 34)
 createOutrosSubBtn("Echo", "84801715196210", 68)
 createOutrosSubBtn("Laugh", "76693372307958", 102)
 
--- 3. Fog (ID: 104453469634665)
+-- 3. Fog
 local fogPage = createTabPage("fog", "FOG", 104453469634665)
 local origFogEnd = Lighting.FogEnd
 local origFogColor = Lighting.FogColor
@@ -1561,7 +1558,152 @@ UserInputService.InputChanged:Connect(function(inp)
     end
 end)
 
--- 4. Cursors (ID: 138726408233424)
+-- Calibrator Settings Card
+local calibratorCard = Instance.new("Frame")
+calibratorCard.Parent = fogPage
+calibratorCard.BackgroundColor3 = Color3.fromRGB(18, 18, 25)
+calibratorCard.BackgroundTransparency = 0.4
+calibratorCard.BorderSizePixel = 0
+calibratorCard.Size = UDim2.new(1, -10, 0, 424)
+
+local calibCorner = Instance.new("UICorner")
+calibCorner.CornerRadius = UDim.new(0, 12)
+calibCorner.Parent = calibratorCard
+
+local calibStroke = Instance.new("UIStroke")
+calibStroke.Parent = calibratorCard
+calibStroke.Thickness = 1
+calibStroke.Color = Color3.fromRGB(45, 45, 65)
+
+local calibTitle = Instance.new("TextLabel")
+calibTitle.Parent = calibratorCard
+calibTitle.BackgroundTransparency = 1
+calibTitle.Position = UDim2.new(0, 14, 0, 8)
+calibTitle.Size = UDim2.new(1, -28, 0, 22)
+calibTitle.Font = Enum.Font.GothamBold
+calibTitle.Text = "Calibrator Settings"
+calibTitle.TextColor3 = Color3.fromRGB(240, 240, 255)
+calibTitle.TextSize = 13
+calibTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local calibCC = Instance.new("ColorCorrectionEffect")
+calibCC.Name = "FTF_CalibratorCC"
+calibCC.Parent = Lighting
+
+local calibBloom = Instance.new("BloomEffect")
+calibBloom.Name = "FTF_CalibratorBloom"
+calibBloom.Intensity = 0
+calibBloom.Parent = Lighting
+
+local origShadowSoftness = Lighting.ShadowSoftness
+local origExposure = Lighting.ExposureCompensation
+local origAmbient = Lighting.Ambient
+
+local function createCalibSlider(nameText, yPosition, defaultValue, callback)
+    local frame = Instance.new("Frame")
+    frame.Parent = calibratorCard
+    frame.BackgroundTransparency = 1
+    frame.Position = UDim2.new(0, 10, 0, yPosition)
+    frame.Size = UDim2.new(1, -20, 0, 44)
+
+    local label = Instance.new("TextLabel")
+    label.Parent = frame
+    label.BackgroundTransparency = 1
+    label.Position = UDim2.new(0, 4, 0, 0)
+    label.Size = UDim2.new(1, -8, 0, 20)
+    label.Font = Enum.Font.Gotham
+    label.Text = nameText .. ": " .. defaultValue .. "%"
+    label.TextColor3 = Color3.fromRGB(190, 190, 215)
+    label.TextSize = 12
+    label.TextXAlignment = Enum.TextXAlignment.Left
+
+    local barBg = Instance.new("TextButton")
+    barBg.Parent = frame
+    barBg.BackgroundColor3 = Color3.fromRGB(30, 30, 44)
+    barBg.BorderSizePixel = 0
+    barBg.Position = UDim2.new(0, 4, 0, 24)
+    barBg.Size = UDim2.new(1, -8, 0, 10)
+    barBg.Text = ""
+
+    local barCorner = Instance.new("UICorner")
+    barCorner.CornerRadius = UDim.new(0, 5)
+    barCorner.Parent = barBg
+
+    local fill = Instance.new("Frame")
+    fill.Parent = barBg
+    fill.BackgroundColor3 = Color3.fromRGB(50, 130, 255)
+    fill.BorderSizePixel = 0
+    fill.Size = UDim2.new(defaultValue / 100, 0, 1, 0)
+
+    local fillCorner = Instance.new("UICorner")
+    fillCorner.CornerRadius = UDim.new(0, 5)
+    fillCorner.Parent = fill
+
+    local dragging = false
+    barBg.MouseButton1Down:Connect(function() dragging = true end)
+    UserInputService.InputEnded:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then dragging = false end
+    end)
+    UserInputService.InputChanged:Connect(function(inp)
+        if dragging and (inp.UserInputType == Enum.UserInputType.MouseMovement or inp.UserInputType == Enum.UserInputType.Touch) then
+            local pos = math.clamp((inp.Position.X - barBg.AbsolutePosition.X) / barBg.AbsoluteSize.X, 0, 1)
+            local pct = math.floor(pos * 100)
+            fill.Size = UDim2.new(pos, 0, 1, 0)
+            label.Text = nameText .. ": " .. pct .. "%"
+            callback(pct)
+        end
+    end)
+
+    local function resetFunc(val)
+        fill.Size = UDim2.new(val / 100, 0, 1, 0)
+        label.Text = nameText .. ": " .. val .. "%"
+        callback(val)
+    end
+
+    callback(defaultValue)
+    return resetFunc
+end
+
+local setSat = createCalibSlider("Saturação", 34, 50, function(v) calibCC.Saturation = (v - 50) / 50 end)
+local setSha = createCalibSlider("Sombras", 82, 50, function(v) Lighting.ShadowSoftness = v / 100 end)
+local setCon = createCalibSlider("Contraste", 130, 50, function(v) calibCC.Contrast = (v - 50) / 50 end)
+local setBri = createCalibSlider("Brilho", 178, 50, function(v) calibCC.Brightness = (v - 50) / 50 end)
+local setExp = createCalibSlider("Exposição", 226, 50, function(v) Lighting.ExposureCompensation = (v - 50) / 25 end)
+local setBlo = createCalibSlider("Brilho Externo (Bloom)", 274, 0, function(v) calibBloom.Intensity = v / 100 end)
+local setAmb = createCalibSlider("Ambiente", 322, 50, function(v) 
+    local c = math.floor((v / 100) * 255)
+    Lighting.Ambient = Color3.fromRGB(c, c, c)
+end)
+
+local resetCalibBtn = Instance.new("TextButton")
+resetCalibBtn.Parent = calibratorCard
+resetCalibBtn.BackgroundColor3 = Color3.fromRGB(70, 20, 20)
+resetCalibBtn.BackgroundTransparency = 0.2
+resetCalibBtn.BorderSizePixel = 0
+resetCalibBtn.Position = UDim2.new(0, 14, 0, 376)
+resetCalibBtn.Size = UDim2.new(1, -28, 0, 32)
+resetCalibBtn.Font = Enum.Font.GothamBold
+resetCalibBtn.Text = "Reset Calibrator"
+resetCalibBtn.TextColor3 = Color3.fromRGB(255, 100, 100)
+resetCalibBtn.TextSize = 12
+
+local resetCalibCorner = Instance.new("UICorner")
+resetCalibCorner.CornerRadius = UDim.new(0, 8)
+resetCalibCorner.Parent = resetCalibBtn
+
+resetCalibBtn.MouseButton1Click:Connect(function()
+    setSat(50)
+    setSha(50) 
+    setCon(50)
+    setBri(50)
+    setExp(50)
+    setBlo(0)
+    setAmb(50)
+    Lighting.ShadowSoftness = origShadowSoftness
+    Lighting.Ambient = origAmbient
+end)
+
+-- 4. Cursors
 local cursorsPage = createTabPage("cursors", "CURSORS", 138726408233424)
 local customCursorImage = Instance.new("ImageLabel")
 customCursorImage.Name = "CustomCursor"
@@ -1707,7 +1849,7 @@ UserInputService.InputChanged:Connect(function(inp)
     end
 end)
 
--- 5. Textures (ID: 95451134259020)
+-- 5. Textures
 local texturesPage = createTabPage("textures", "TEXTURES", 95451134259020)
 
 local function isPlayerCharacter(part)
@@ -1865,7 +2007,7 @@ createCardSubButton(texturesCard, "removeTexture", 136, function(enabled)
     end
 end)
 
--- 6. Icons (ID: 123316235209546)
+-- 6. Icons
 local iconsPage = createTabPage("icons", "ICONS", 123316235209546)
 
 local iconDescLabel = Instance.new("TextLabel")
@@ -2019,7 +2161,7 @@ bgDropdownBtn.MouseButton1Click:Connect(function()
     bgDropdownList.Visible = not bgDropdownList.Visible
 end)
 
--- 7. Avatar (ID: 106050892609784)
+-- 7. Avatar
 local avatarPage = createTabPage("avatar", "AVATAR", 106050892609784)
 
 local avatarCard = Instance.new("Frame")
