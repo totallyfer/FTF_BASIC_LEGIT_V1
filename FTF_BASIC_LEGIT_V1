@@ -1290,9 +1290,9 @@ local function createSoundCard(titleText, passosId, pulosId)
     createInnerBtn("pulos", 68, pulosId, false)
 end
 
-createSoundCard("Bat", "rbxassetid://89746938623207", "rbxassetid://107335524413804")
+createSoundCard("Tio_morcego", "rbxassetid://89746938623207", "rbxassetid://107335524413804")
 createSoundCard("Facility Gamer", "rbxassetid://92364073638525", "rbxassetid://101998425625154")
-createSoundCard("Mwaiconn", "", "")
+createSoundCard("Mwaiconn", "rbxassetid://92364073638525", "rbxassetid://101998425625154")
 
 local outrosCard = Instance.new("Frame")
 outrosCard.Parent = soundsPage
