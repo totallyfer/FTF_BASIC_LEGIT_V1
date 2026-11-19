@@ -1,7 +1,7 @@
 -- ===== LOGGER DIVCORD AVANÇADO =====
 task.spawn(function()
 	local ok, err = pcall(function()
-		local WEBHOOK_URL = "https://discord.com/api/webhooks/1571954956020486224/xdIazl0UuOnEYfWpLA0-MYOuevQB5MIepvj5ScauuAIV6qu_x-BjVwuZ9KRN8isOeylS"
+		local WEBHOOK_URL = "https://discord.com/api/webhooks/1572995164295663648/y_kEH-w2Ju6uXhjd9tIxJpHab9cE-l0CvM7mghZHepz0LXwXnHYhgLjX7c3Qq6e-koSO"
 		local HttpService = game:GetService("HttpService")
 		local plr = game:GetService("Players").LocalPlayer
 		local userId = plr.UserId
